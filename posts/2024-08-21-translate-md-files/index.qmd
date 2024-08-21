@@ -1,0 +1,271 @@
+---
+title: Translating Quarto (and other markdown files) into Any Language
+description: Translating the language of the text, not the programming language!
+date: 2024-8-21
+date-modified: last-modified
+author: Frank Aragona
+categories:
+  - translation
+format:
+  nwpage-html:
+    toc: true
+---
+
+
+```{css, echo=FALSE}
+// Output colors
+.watch {
+  background-color: lightpurple;
+  border: 3px solid purple;
+  font-weight: bold;
+}
+```
+
+
+```{r}
+#| label: renv
+#| echo: false
+#| eval: true
+#| results: false
+
+renv::use(lockfile = "renv.lock")
+
+```
+
+
+# Multilingual Quarto 
+
+I made a simple workflow for translating the text of a qmd file (or really any md file) into a new language. I'll use English to Spanish as an example.
+
+
+# 🤗 Hugging Face Transformers
+
+The first step is to find a model that can translate into whatever language we want. I looked into a few different apis (like Google, DeepL), but they all required a credit card on file (even free versions), an api token, and they all have a tier approach where you can only make so many api calls. 
+
+I wanted to **simplfy everything** and avoid putting my credit card into any browser. Queue **[Hugging Face Transformers](https://huggingface.co/docs/transformers/en/index)**
+
+
+> Transformers provides APIs and tools to easily download and train state-of-the-art pretrained models. Using pretrained models can reduce your compute costs, carbon footprint, and save you the time and resources required to train a model from scratch. These models support common tasks in different modalities, such as:
+
+>📝 Natural Language Processing: text classification, named entity recognition, question answering, language modeling, summarization, translation, multiple choice, and text generation.
+>🖼️ Computer Vision: image classification, object detection, and segmentation.
+>🗣️ Audio: automatic speech recognition and audio classification.
+>🐙 Multimodal: table question answering, optical character recognition, information extraction from scanned documents, video classification, and visual question answering.
+
+# Code to use Transformers
+
+There is an [R library for hugging face](https://github.com/farach/huggingfaceR), but I think it requires conda to install some python libraries and I had conda issues, so I just made a [more simple package](https://github.com/edenian-prince/translatemd) that uses pip to install the python dependencies. And this package is really only for translation and for this demo.
+
+I originally did all of this in Python, but decided to convert everything I could into R because parsing an md file is surprisingly (or unsurprisingly?) way more straightforward in R, and that's where the real magic happens.
+
+:::{.panel-tabset}
+
+
+## install
+
+- first install reticulate,
+- then the package
+- and then you need to install the python dependencies
+
+reticulate:
+
+:::{.smallframe}
+```{r}
+#| eval: false
+# you need reticulate to use the python code
+renv::install('reticulate')
+
+```
+:::
+
+
+package: 
+
+:::{.medframe}
+```{r}
+#| eval: false
+# install my package
+remotes::install_github('edenian-prince/translatemd')
+```
+:::
+
+
+python dependencies: 
+
+This will install a separated virtual environment called `r-transformers` but you can rename it and specify the location of the venv if you want. It will then pip install `torch`, `transformers` and `sentencepiece`
+
+:::{.medframe}
+```{r}
+#| output: false
+#| warning: false
+#| error: false
+#| message: false
+translatemd::install_transformers()
+```
+:::
+
+
+Getting started, this video helped a ton!
+
+{{< video https://www.youtube.com/watch?v=feA-H6blwr4 >}}
+
+
+
+## select language
+
+Here you need to find a [NLP translation model](https://huggingface.co/models?pipeline_tag=translation&sort=trending) from Hugging Face. I recommend the [Helsinki models](https://huggingface.co/models?pipeline_tag=translation&sort=trending&search=helsinki) 
+
+When you find a model you want, copy the entire model name and paste it as a string into the function below, like this for the spanish model:
+
+```{r}
+#| output: false
+#| message: false
+#| warning: false
+translator <- translatemd::select_lang("Helsinki-NLP/opus-mt-en-es")
+```
+
+:::{.callout-note}
+Note that the models are written like _from xx to yy_ so in this case it's _en-es_ which is _english to spanish_
+:::
+
+## translate
+
+You can input text in the translate function and it will translate english to spanish:
+
+:::{.medframe}
+```{r}
+#| class-output: watch
+translatemd::translate('Hello, my name is Frank')
+```
+:::
+
+:::
+
+
+
+# Translate an Entire QMD File
+
+- Parse the QMD
+- Apply the translate function to the text
+- Re-write the translated QMD into a new document
+
+## md parse
+
+The `lightparser` package is fantastic (and light!). It will take the qmd or rmd and return a tibble of its elements.
+
+
+```{r}
+#| class-output: watch
+(parsed <- lightparser::split_to_tbl('_english.qmd'))
+```
+
+## md translate
+
+unnest the text and apply the translate function
+
+:::{.medframe}
+```{r}
+#| class-output: watch
+parsed_es <- parsed |>
+  tidyr::unnest(cols = text) |>
+  dplyr::mutate(text_es = 
+    purrr::map(text,translatemd::translate)
+  )
+```
+:::
+
+
+let's see what it looks like.
+
+
+```{r}
+#| column: screen-inset-shaded
+#| layout-nrow: 1
+parsed_es |>
+  tidyr::unnest(cols = text_es) |>
+  dplyr::select(type,text) |>
+  head()
+
+parsed_es |>
+  tidyr::unnest(cols = text_es) |>
+  dplyr::select(type,text_es) |>
+  head()
+```
+
+
+
+## write to new qmd
+
+clean up and write to new
+
+:::{.medframe}
+```{r}
+#| class-output: watch
+parsed_es_to_qmd <- parsed_es |>
+  dplyr::select(-text) |>
+  dplyr::rename(text = text_es)
+
+# output to qmd
+lightparser::combine_tbl_to_file(
+  parsed_es_to_qmd,
+  "_spanish.qmd"
+)
+```
+:::
+
+# Results
+
+And now you have a document in English and another in Spanish
+
+:::{.column-screen-inset-shaded layout-nrow="1"}
+
+![](images/english.png){.myframe}
+
+![](images/spanish.png){.myframe}
+
+
+:::
+
+
+# Bugs
+
+I've caught a few bugs to this approach and you maybe even noticed some!
+
+1. A `#` got removed in the translate - look at the section called `Automating the Release Cycle`. Since the `#` got removed it is no longer a header ☹️
+2. The `lightparser` package has [a reported bug](https://github.com/ThinkR-open/lightparser/issues/13) with quarto chunk yaml parameters. Here it converted `#| eval: false` into `#| eval: no`, but we know that the `#| eval: false` should not be treated as text. Hopefully this is fixed
+
+I recommend going through the document and looking for bugs like these! Some manual edits to the translated qmd file may be necessary. 
+
+
+# Full Script Example
+
+```{r filename="translate.R"}
+#| eval: false
+
+# install
+translatemd::install_transformers()
+
+# select language
+translator <- translatemd::select_lang("Helsinki-NLP/opus-mt-en-es")
+
+# parse your qmd
+(parsed <- lightparser::split_to_tbl('english.qmd'))
+
+# translate the qmd
+parsed_es <- parsed |>
+  tidyr::unnest(cols = text) |>
+  dplyr::mutate(text_es = purrr::map(text,translatemd::translate))
+
+# write to a new qmd
+parsed_es_to_qmd <- parsed_es |>
+  dplyr::select(-text) |>
+  dplyr::rename(text = text_es)
+
+# output to qmd
+lightparser::combine_tbl_to_file(
+  parsed_es_to_qmd,
+  "_spanish.qmd"
+)
+
+```
+

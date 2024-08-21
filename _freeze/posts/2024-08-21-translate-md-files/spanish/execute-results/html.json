@@ -1,0 +1,15 @@
+{
+  "hash": "82793cc649b2b621d28ad61f98b19f3c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: single-doc\nformat: html\n---\n\n\n\n\n# Quarto\n\nQuarto le permite entretejer el contenido y el código ejecutable en un documento terminado. Para obtener más información sobre Quarto, consulte <https://quarto.org>.\n\n\nPara crear el ciclo de lanzamiento en su repo es posible que desee utilizar Commits convencionales.\n\nCommits convencionales son una forma de formatear y estandarizar sus mensajes de commit, que se puede utilizar para automatizar el ciclo de lanzamiento de la repo. Por ejemplo, un método convencional es etiquetar cualquier commit asociado con una nueva característica como `feat:` más un mensaje de commit.\n\n- La palabra `feat:` puede activar una acción de Github para añadir que se compromete a su registro de cambios bajo el encabezado **Características**,\n- y subirá el número de versión de lanzamiento menor.\n- Así que si usted está en la versión 1.0.0, un nuevo `feat ' subirá la versión del ciclo a 1.1.0\n- Commit títulos que comienzan con la palabra `fix:` como en una corrección de errores subirá la versión del número de parche del, es decir, 1.0.0 a 1.0.1\n\nAutomatizando el Ciclo de Liberación\n\nUsted debe considerar automatizar su ciclo de lanzamiento para que su ciclo de proyecto sea consistente y predecible.Hay muchas maneras diferentes de abordar esto.\n\nAlgunas repos tienen ciclos semiautomáticos donde hay algún componente manual de la liberación de su software, mientras que otras están completamente automatizadas. Las releases manuales también pueden funcionar para algunos escenarios.\n\nAquí hay un trozo de código.\n\n:::{.smallframe}\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmtcars |>\n  select(mpg)|>\n  slice(1)\n```\n:::\n\n\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

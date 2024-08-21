@@ -1,0 +1,15 @@
+{
+  "hash": "cd20cbbda28a97b7d677a01048fa2097",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"single-doc\"\nformat: html\n---\n\n\n\n# Quarto\n\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.\n\n\nTo create the release cycle in your repo you may want to use Conventional Commits.\n\nConventional Commits are a way to format and standardize your commit messages, which can be used to then automate the repo's release cycle. For example, one conventional naming method is to label any commit associated with a new feature as `feat:` plus a commit message.\n\n-   The word `feat:` can trigger a Github Action to add that commit to your changelog under the **Features** header,\n-   and it will up-version the minor release version number.\n-   So if you are on release 1.0.0, a new `feat` will up-version the cycle to 1.1.0\n-   Commit titles that start with the word `fix:` as in a bug fix will up-version the patch number of the, i.e. 1.0.0 to 1.0.1\n\n# Automating The Release Cycle\n\nYou should consider automating your release cycle so that your project cycle is consistent and predictable. There are many different ways to approach this.\n\nSome repos have semi-automatic cycles where there is some manual component of releasing their software, whereas others are fully automated. Manual releases can work too for some scenarios.\n\nHere's a code chunk\n\n:::{.smallframe}\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmtcars |>\n  select(mpg)|>\n  slice(1)\n```\n:::\n\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
