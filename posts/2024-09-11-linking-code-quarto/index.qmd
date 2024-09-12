@@ -1,0 +1,40 @@
+---
+title: Auto link code to your documentation
+author: frank aragona
+date: 9/11/2024
+date-modified: last-modified
+categories:
+  - quarto
+format:
+  toc: true
+---
+
+
+
+# Who is this for
+this post is for people you identify with these points:
+
+- you want to execute code in your documentation
+- you want to include an external code chunk in your documentation
+- you use quarto
+- you use rmarkdown
+- you use sphinx
+- you are writing documentation for a package
+
+# Why link code to your docs
+
+1. you can execute code to conditionally change your document
+2. you can modularize your documentation
+3. you can have your **documentation automatically update whenever your code base changes**
+
+# Examples
+
+
+
+# Auto link code to package docs
+
+## python
+
+## r
+
+
