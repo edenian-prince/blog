@@ -1,0 +1,105 @@
+---
+title: Home server notes
+description: writing down notes because I will totally forget everything
+date: 2024-9-10
+date-modified: last-modified
+author: me
+categories:
+  - translation
+format:
+  nwpage-html:
+    toc: true
+---
+
+
+```{css, echo=FALSE}
+// Output colors
+.watch {
+  background-color: lightpurple;
+  border: 3px solid purple;
+  font-weight: bold;
+}
+```
+
+# Set up
+
+I'm going to use Ubuntu Server since it apparently is essentially just a minimal set up of regular Ubuntu. I don't want to bloat the server with random crap that Ubuntu installs.
+
+This video is gold and is basically everything I need to set this up:
+
+{{< video https://youtu.be/2Btkx9toufg?si=Ye9aAy0zgdBjxlvG >}}
+
+
+# Static IP Address
+
+From what I'm gathering, I should probably use a static IP vs a DHCP (Dynamic Host Configuration Protocol). A DCHP as its name suggests, dynamically assigns IPs to various machines in your network. 
+
+There's a range of DHCPs that can be selected from, and so the static IP cannot be within that range or else some other device could be assigned to it.
+
+For example, my range is `x.x.x.2` to `x.x.x.253`, so 2 to 253. I therefore need to assign my IP to something like `x.x.x.254`.
+
+:::{.callout-note}
+
+I had some issues with assigning `x.x.x.255` because on the `/24` port, `255` is reserved for broadcasting. 
+
+:::
+
+## Finding Network Info 
+
+Look on the back of your router to find the gateway, and then type that into a web browser (something like `x.x.x.0`).
+
+From there it took me to my ISP's site for configuring my personal network. I found my DHCP range there.
+
+## Configuring a Static IP
+
+I made messed up the IP address initially and needed to go into the config to change it. You can do this:
+
+:::{.medframe}
+
+```{bash filename="terminal"}
+sudo vim /etc/netplan/00-installer-config.yaml
+```
+:::
+
+it will look something like this:
+
+
+```{yaml filename="00-installer-config.yaml"}
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    en01:
+      addresses:
+      - 192.168.1.25/24
+      - "2001:1::1/64"
+      gateway4: 192.168.1.1
+      gateway6: "2001:1::2"
+      nameservers:
+        addresses:
+        - 8.8.8.8
+        - 8.8.4.4
+```
+once you're done adjusting this file, execute this:
+
+:::{.smallframe}
+```{bash filename="terminal"}
+sudo netplan apply
+```
+:::
+
+# Connect via SSH
+
+Once the server is set up and static IP is set, connecting via ssh was pretty easy.
+
+On an external device, run this:
+
+:::{.smallframe}
+```{bash filename="terminal"}
+ssh user@x.x.x.254
+```
+:::
+
+
+
+
