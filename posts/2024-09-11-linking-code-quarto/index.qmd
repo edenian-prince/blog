@@ -9,7 +9,7 @@ format:
   toc: true
 ---
 
-
+This post will cover how to link your codebase to your documentation. 
 
 # Who is this for
 this post is for people you identify with these points:
@@ -29,9 +29,19 @@ this post is for people you identify with these points:
 
 # Examples
 
+Table of Contents: 
+
+1. Auto link your codebase @sec-codebase
+2. Link external code to documentation
+3. Include chunks to your documentation
+3. Quarto Manuscripts - link notebooks to your manuscript
 
 
-# Auto link code to package docs
+# Auto link code to package docs {#sec-codebase}
+
+Most R packages have great documentation thanks to the standard framework set by `pkgdown`. `pkgdown` can easily set up documentation for a custom R package that automatically links the functions in your code to your documention (usually as a Github Page doc). 
+
+Mainstream python packages usually have good documentation too, and many are written via `sphinx`, a framework that is similar to `pkgdown` in many ways.  
 
 ## python
 
