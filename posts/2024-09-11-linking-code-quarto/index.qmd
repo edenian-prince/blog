@@ -1,31 +1,60 @@
 ---
-title: Auto link code to your documentation
+title: Automatically link code to your documentation
 author: frank aragona
 date: 9/11/2024
 date-modified: last-modified
 categories:
   - quarto
+  - documentation
 format:
   toc: true
 ---
 
-This post will cover how to link your codebase to your documentation. 
+A couple months ago I bought a new laptop from a company called Framework. The laptop is completely modular and repairable - you can easily swap out whatever component you want and replace it. And it is so easy to fix and swap out components that the company gives you the option to put together the laptop yourself when they ship it to you (a DIY laptop!). 
 
-# Who is this for
-this post is for people you identify with these points:
+I got to put in the RAM and storage, I pieced together the keyboard to the main board, and I installed Ubuntu for the first time in my life. And it was all.. way easier than I expected. Framework labels every component of the computer with a QR code that links to detailed and rich documentation about installing the component. So if you've never installed RAM before, it is no problem - you can scan the QR code and follow along easy instructions and videos on how to install it.
 
-- you want to execute code in your documentation
-- you want to include an external code chunk in your documentation
-- you use quarto
-- you use rmarkdown
-- you use sphinx
-- you are writing documentation for a package
+So why tf am I talking about this laptop in a post about code documentation? Well, without good documentation our world would be fucked. I really mean that. 
 
-# Why link code to your docs
+- Most software engineers google their way through a problem. The scan the internet for answers.
 
-1. you can execute code to conditionally change your document
-2. you can modularize your documentation
-3. you can have your **documentation automatically update whenever your code base changes**
+- Doctors use google too.. they read journal articles and medical text to understand problems
+
+- Car mechanics read car manuals
+
+- All of us read tons of documentation all the time. It's how we learn and fix things. **We are all piecing together each other's insights to learn and apply what we've learned to a problem**. Humanity has advanced so quickly because of freaking documentation.
+
+So, if you're a data scientist, software engineer, or anybody writing code, keep in mind that your code is worthless if it's not well documented. Stop with the "I don't write comments cus the code speaks for itself" bullshit. Write out clear documentation for your future self and for others. 
+
+I'm going to show some ways to automate your code documentation so that you can put in _minimal_ effort and still have killer documentation.
+
+# Looks Matter (for your docs)
+
+If you hand someone 500 pages worth of a boring, standard looking pdf, they will not read it. 
+
+If you hand somebody a cool website with the _exact_ same documentation as the pdf, they will probably read or at least skim through it.
+
+For example,
+
+left
+
+
+right
+
+
+<br>
+
+See what I mean? Both are the exact same document, but one sucks and the other looks sweet. I will learn far more about this package if I look at the website. 
+
+# How do I do this?
+
+
+
+# Python Docstrings
+
+If you're a python user you most likely have already written out docstrings. I'm going to show a couple ways t
+
+
 
 # Examples
 
@@ -34,7 +63,7 @@ Table of Contents:
 1. Auto link your codebase @sec-codebase
 2. Link external code to documentation
 3. Include chunks to your documentation
-3. Quarto Manuscripts - link notebooks to your manuscript
+3. Quarto Manuscripts - link notebooks to your manuscrip
 
 
 # Auto link code to package docs {#sec-codebase}
