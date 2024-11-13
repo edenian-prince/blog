@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
     "objectID": "posts/2024-08-21-translate-md-files/index.html#md-parse",
     "href": "posts/2024-08-21-translate-md-files/index.html#md-parse",
     "title": "Translating Quarto (and other markdown files) into Any Language",
@@ -28,6 +21,27 @@
     "text": "write to new qmd\nclean up and write to new\n\n\nparsed_es_to_qmd &lt;- parsed_es |&gt;\n  dplyr::select(-text) |&gt;\n  dplyr::rename(text = text_es)\n\n# output to qmd\nlightparser::combine_tbl_to_file(\n  parsed_es_to_qmd,\n  \"_spanish.qmd\"\n)"
   },
   {
+    "objectID": "posts/2024-09-11-linking-code-quarto/index.html",
+    "href": "posts/2024-09-11-linking-code-quarto/index.html",
+    "title": "Automatically link code to your documentation",
+    "section": "",
+    "text": "A couple months ago I bought a new laptop from a company called Framework. The laptop is completely modular and repairable - you can easily swap out whatever component you want and replace it. And it is so easy to fix and swap out components that the company gives you the option to put together the laptop yourself when they ship it to you (a DIY laptop!).\nI got to put in the RAM and storage, I pieced together the keyboard to the main board, and I installed Ubuntu for the first time in my life. And it was all.. way easier than I expected. Framework labels every component of the computer with a QR code that links to detailed and rich documentation about installing the component. So if you’ve never installed RAM before, it is no problem - you can scan the QR code and follow along easy instructions and videos on how to install it.\nSo why tf am I talking about this laptop in a post about code documentation? Well, without good documentation our world would be fucked. I really mean that.\nSo, if you’re a data scientist, software engineer, or anybody writing code, keep in mind that your code is worthless if it’s not well documented. Stop with the “I don’t write comments cus the code speaks for itself” bullshit. Write out clear documentation for your future self and for others.\nI’m going to show some ways to automate your code documentation so that you can put in minimal effort and still have killer documentation."
+  },
+  {
+    "objectID": "posts/2024-09-11-linking-code-quarto/index.html#python",
+    "href": "posts/2024-09-11-linking-code-quarto/index.html#python",
+    "title": "Automatically link code to your documentation",
+    "section": "python",
+    "text": "python"
+  },
+  {
+    "objectID": "posts/2024-09-11-linking-code-quarto/index.html#r",
+    "href": "posts/2024-09-11-linking-code-quarto/index.html#r",
+    "title": "Automatically link code to your documentation",
+    "section": "r",
+    "text": "r"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -39,7 +53,14 @@
     "href": "index.html",
     "title": "blog",
     "section": "",
-    "text": "Translating Quarto (and other markdown files) into Any Language\n\n\n\n\n\n\ntranslation\n\n\n\nTranslating the language of the text, not the programming language!\n\n\n\n\n\nAug 21, 2024\n\n\nFrank Aragona\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nAug 20, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 17, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Automatically link code to your documentation\n\n\n\n\n\n\nquarto\n\n\ndocumentation\n\n\n\n\n\n\n\n\n\nSep 11, 2024\n\n\nfrank aragona\n\n\n\n\n\n\n\n\n\n\n\n\nTranslating Quarto (and other markdown files) into Any Language\n\n\n\n\n\n\ntranslation\n\n\nquarto\n\n\n\nTranslating the language of the text, not the programming language!\n\n\n\n\n\nAug 21, 2024\n\n\nFrank Aragona\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nAug 20, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 17, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
   },
   {
     "objectID": "posts/welcome/index.html",

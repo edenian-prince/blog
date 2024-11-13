@@ -2,14 +2,24 @@ project:
   type: website
 
 website:
-  title: "Frank Anthony"
+  # title: "Frank Anthony"
   navbar:
+    title: "<span class='cloud'></span><span class='rain'></span>"
     right:
       - about.qmd
       - icon: github
         href: https://github.com/edenian-prince/blog
 format:
-  nwpage-html: default
+  html:
+    theme: [cosmo, styles.scss ]
+    page-layout: article
+    grid:
+      sidebar-width: 1px
+      body-width: 500px
+      gutter-width: 1px
+    toc: true
+
+
 
 
 

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="frank aragona">
+<meta name="dcterms.date" content="2024-09-11">
 
-<title>About</title>
+<title>Automatically link code to your documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,14 +72,14 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><span class="cloud"></span><span class="rain"></span></span>
     </a>
   </div>
@@ -87,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -103,42 +106,124 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Automatically link code to your documentation</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">quarto</div>
+                <div class="quarto-category">documentation</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>frank aragona </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 11, 2024</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">November 3, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#looks-matter-for-your-docs" id="toc-looks-matter-for-your-docs" class="nav-link active" data-scroll-target="#looks-matter-for-your-docs">Looks Matter (for your docs)</a></li>
+  <li><a href="#how-do-i-do-this" id="toc-how-do-i-do-this" class="nav-link" data-scroll-target="#how-do-i-do-this">How do I do this?</a></li>
+  <li><a href="#python-docstrings" id="toc-python-docstrings" class="nav-link" data-scroll-target="#python-docstrings">Python Docstrings</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#sec-codebase" id="toc-sec-codebase" class="nav-link" data-scroll-target="#sec-codebase">Auto link code to package docs</a>
+  <ul class="collapse">
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">python</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">r</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>About this blog</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://linkedin.com" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+
+
+<p>A couple months ago I bought a new laptop from a company called Framework. The laptop is completely modular and repairable - you can easily swap out whatever component you want and replace it. And it is so easy to fix and swap out components that the company gives you the option to put together the laptop yourself when they ship it to you (a DIY laptop!).</p>
+<p>I got to put in the RAM and storage, I pieced together the keyboard to the main board, and I installed Ubuntu for the first time in my life. And it was all.. way easier than I expected. Framework labels every component of the computer with a QR code that links to detailed and rich documentation about installing the component. So if you’ve never installed RAM before, it is no problem - you can scan the QR code and follow along easy instructions and videos on how to install it.</p>
+<p>So why tf am I talking about this laptop in a post about code documentation? Well, without good documentation our world would be fucked. I really mean that.</p>
+<ul>
+<li><p>Most software engineers google their way through a problem. The scan the internet for answers.</p></li>
+<li><p>Doctors use google too.. they read journal articles and medical text to understand problems</p></li>
+<li><p>Car mechanics read car manuals</p></li>
+<li><p>All of us read tons of documentation all the time. It’s how we learn and fix things. <strong>We are all piecing together each other’s insights to learn and apply what we’ve learned to a problem</strong>. Humanity has advanced so quickly because of freaking documentation.</p></li>
+</ul>
+<p>So, if you’re a data scientist, software engineer, or anybody writing code, keep in mind that your code is worthless if it’s not well documented. Stop with the “I don’t write comments cus the code speaks for itself” bullshit. Write out clear documentation for your future self and for others.</p>
+<p>I’m going to show some ways to automate your code documentation so that you can put in <em>minimal</em> effort and still have killer documentation.</p>
+<section id="looks-matter-for-your-docs" class="level1">
+<h1>Looks Matter (for your docs)</h1>
+<p>If you hand someone 500 pages worth of a boring, standard looking pdf, they will not read it.</p>
+<p>If you hand somebody a cool website with the <em>exact</em> same documentation as the pdf, they will probably read or at least skim through it.</p>
+<p>For example,</p>
+<p>left</p>
+<p>right</p>
+<p><br></p>
+<p>See what I mean? Both are the exact same document, but one sucks and the other looks sweet. I will learn far more about this package if I look at the website.</p>
+</section>
+<section id="how-do-i-do-this" class="level1">
+<h1>How do I do this?</h1>
+</section>
+<section id="python-docstrings" class="level1">
+<h1>Python Docstrings</h1>
+<p>If you’re a python user you most likely have already written out docstrings. I’m going to show a couple ways t</p>
+</section>
+<section id="examples" class="level1">
+<h1>Examples</h1>
+<p>Table of Contents:</p>
+<ol type="1">
+<li>Auto link your codebase <a href="#sec-codebase" class="quarto-xref">Section&nbsp;5</a></li>
+<li>Link external code to documentation</li>
+<li>Include chunks to your documentation</li>
+<li>Quarto Manuscripts - link notebooks to your manuscrip</li>
+</ol>
+</section>
+<section id="sec-codebase" class="level1">
+<h1>Auto link code to package docs</h1>
+<p>Most R packages have great documentation thanks to the standard framework set by <code>pkgdown</code>. <code>pkgdown</code> can easily set up documentation for a custom R package that automatically links the functions in your code to your documention (usually as a Github Page doc).</p>
+<p>Mainstream python packages usually have good documentation too, and many are written via <code>sphinx</code>, a framework that is similar to <code>pkgdown</code> in many ways.</p>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">python</h2>
+</section>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">r</h2>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -159,6 +244,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

@@ -7,8 +7,11 @@ categories:
   - quarto
   - documentation
 format:
-  toc: true
+  html:
+    toc: true
+draft: true
 ---
+
 
 A couple months ago I bought a new laptop from a company called Framework. The laptop is completely modular and repairable - you can easily swap out whatever component you want and replace it. And it is so easy to fix and swap out components that the company gives you the option to put together the laptop yourself when they ship it to you (a DIY laptop!). 
 

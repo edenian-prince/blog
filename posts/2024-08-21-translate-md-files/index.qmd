@@ -7,9 +7,9 @@ author: Frank Aragona
 categories:
   - translation
   - quarto 
-format:
-  nwpage-html:
-    toc: true
+# format:
+#   nwpage-html:
+#     toc: true
 ---
 
 
