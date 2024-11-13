@@ -6,9 +6,10 @@ date-modified: last-modified
 author: Frank Aragona
 categories:
   - translation
-format:
-  nwpage-html:
-    toc: true
+  - quarto 
+# format:
+#   nwpage-html:
+#     toc: true
 ---
 
 

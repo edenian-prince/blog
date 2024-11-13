@@ -1,0 +1,235 @@
+/*-- scss:defaults --*/
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #fdfdfd;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+$purple: #1d044f;
+$navbar-bg: $gray-200;
+
+// $primary: #440154ff;
+$primary: #fdfdfd;
+$link-color: $gray-900;
+
+// fonts
+$font-family-sans-serif: 'JetBrains Mono', sans-serif;
+// $presentation-heading-font: 'IBM Plex Serif', serif;
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url('https://rsms.me/inter/inter.css');
+
+
+/*-- scss:rules --*/
+
+.navbar {
+  position: relative;
+  height: 70px; /* Adjust height as needed */
+  background-color: $gray-200; /* Navbar background color */
+  font-family: 'JetBrains Mono';
+}
+
+// color for highlight style
+pre code {
+  padding-left: 5%;
+}
+
+pre code.sourceCode {
+  padding-left: 0;
+  font-family: "Source Code Pro", monospace;
+}
+
+.downlit code a:any-link {
+  text-decoration: underline;
+  text-decoration-color: $purple;
+}
+
+div.sourceCode {
+  background-color: rgba(192,192,192,.16);
+  border: 1px solid rgba(192,192,192,.16);
+  border-radius: .25rem;
+}
+
+.watch {
+  background-color: lightpurple;
+  border: 3px solid $purple;
+  font-weight: bold;
+}
+
+.smallframe {
+  /*box-shadow: $back-blue 10px 5px 5px 0px;*/
+  // border: none;
+  // border-radius: 5px;
+  // margin-bottom: 10px !important;
+  // box-shadow: 0 20px 47px rgb(0 0 0 / 55%);
+  width: 400px;
+  /*margin: auto !important;*/
+  max-width: calc(100% - 20px);
+  margin: 0;
+  padding-right: 10px;
+  
+}
+
+h2, .h2 {
+  border-bottom: 1px solid $gray-700;
+  padding-bottom: .5rem;
+}
+
+h1, .h1, h2, .h2 {
+  color: $gray-800;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Styling of panel tabset */
+.panel-tabset {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 0px;
+  margin: 0px 0px 16px 0px;
+}
+
+pre {
+  margin: 0px
+}
+
+.tab-content {
+  border: none; 
+  outline: none; 
+  margin: 0px
+}
+
+.nav-item[role="presentation"] {
+  border: none; 
+  outline: none;
+  min-width: 92px;
+  text-align: center  ;
+}
+
+.nav-link {
+  border: none; 
+  outline: none; 
+}
+
+.nav-tabs {
+  border: 0px 0px 2px 0px; 
+  outline: none; 
+}
+
+.nav-link:hover {
+  border: none; 
+  outline: none; 
+  color: $purple;
+}
+
+.nav-link[role="tab"].active {
+  outline: none; 
+  font-weight: bold;
+  transition: none;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 4px solid $purple; 
+}
+
+.nav-link {
+  border: none; 
+  outline: none; 
+  font-weight: light;
+  color: $purple;
+  transition: none;
+}
+
+// Cloud
+
+.cloud {
+  position: absolute; /* Change to relative for navbar context */
+  width: 40px; /* Smaller width */
+  height: 15px; /* Smaller height */
+  background-color: #800080; /* Purple cloud */
+  border-radius: 50px; /* Rounded edges */
+  box-shadow: 0 0 10px rgba(128, 0, 128, 0.5); /* Soft shadow */
+}
+
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background-color: #800080; /* Same purple color */
+  border-radius: 50%; /* Make it round */
+}
+
+.cloud::before {
+  width: 35px; /* Smaller fluff */
+  height: 20px; /* Smaller fluff */
+  top: -7.7px; /* Adjust position */
+  left: 3px; /* Center it */
+}
+
+.cloud::after {
+  width: 25px; /* Smaller fluff */
+  height: 15px; /* Smaller fluff */
+  top: -8px; /* Adjust position */
+  left: 15px; /* Adjust position */
+}
+
+/* Add raindrops */
+.rain {
+  position: absolute;
+  top: 40px; /* Position below the cloud */
+  left: 35px; /* Adjust as needed */
+}
+
+.rain::before, .rain::after, .rain .drop3 {
+  content: '';
+  position: absolute;
+  width: 3px; /* Width of raindrop */
+  height: 10px; /* Height of raindrop */
+  background-color: rgba(128, 0, 128, 0.5); /* Semi-transparent purple */
+  border-radius: 50%; /* Round raindrop */
+  animation: fall 1s infinite; /* Animation */
+}
+
+.rain::before {
+  left: 5px; /* Position for first raindrop */
+  animation: fall 1s infinite; /* Animation */
+}
+
+.rain::after {
+  left: 15px; /* Position for second raindrop */
+  animation: fall 1s infinite 0.5s; /* Staggered animation */
+}
+
+.rain .drop3 {
+  left: 25px; /* Position for the third raindrop */
+  animation: fall 1s infinite 1s; /* Staggered animation */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(15px); /* Shorter drop distance */
+  }
+}
+
+// title block banner color
+/* Add logo to title block margin */
+.quarto-title-block .quarto-title-banner {
+  background-color: $gray-300;
+}
+
