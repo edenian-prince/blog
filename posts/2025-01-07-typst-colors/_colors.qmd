@@ -1,0 +1,73 @@
+---
+title: "callout"
+format:
+    typst: 
+        columns: 1
+        template-partials:
+        - typst-template.typ
+        - typst-show.typ
+        number-sections: true
+        keep-typ: true
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+[this should be green]{style="background-color:green"}
+
+:::{.callout-note style="background-color:green"}
+
+here's a callout 
+:::
+
+:::{.callout-note}
+
+and another
+:::
+
+:::{.callout-important}
+
+and a third
+:::
+
+
+Here's a crazy callout box with custom typst:
+
+```{=typst}
+#import "@preview/showybox:2.0.1": showybox
+
+// Second showybox
+#showybox(
+  title-style: (
+    boxed-style: (
+      anchor: (
+        x: center,
+        y: horizon
+      ),
+      radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt),
+    )
+  ),
+  frame: (
+    title-color: green.darken(40%),
+    body-color: green.lighten(80%),
+    footer-color: green.lighten(60%),
+    border-color: green.darken(60%),
+    radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)
+  ),
+  title: "Key Findings",
+  footer: text(size: 10pt, weight: 600, emph("Please see Situation Updates for COE group updates"))
+)[
+  
+```
+:::{.content-visible when-format="html"}
+# Key Findings
+:::
+
+-   Current data reflects a mixture of x descendents as the.\
+-   Globally no other x with unusual characteristics have been identified as having unusual growth.
+-   Some other point
+
+```{=typst}
+    ]
+```
