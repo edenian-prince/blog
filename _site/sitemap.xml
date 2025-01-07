@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://edenian-prince.github.io/blog/posts/welcome/index.html</loc>
-    <lastmod>2024-12-04T17:32:21.124Z</lastmod>
-  </url>
-  <url>
-    <loc>https://edenian-prince.github.io/blog/posts/2024-08-21-translate-md-files/index.html</loc>
-    <lastmod>2024-12-04T17:32:21.120Z</lastmod>
-  </url>
-  <url>
     <loc>https://edenian-prince.github.io/blog/index.html</loc>
-    <lastmod>2024-12-04T17:32:21.120Z</lastmod>
+    <lastmod>2025-01-07T16:50:07.465Z</lastmod>
   </url>
   <url>
-    <loc>https://edenian-prince.github.io/blog/about.html</loc>
-    <lastmod>2024-12-04T17:32:21.120Z</lastmod>
+    <loc>https://edenian-prince.github.io/blog/posts/2025-01-07-typst-colors/index.html</loc>
+    <lastmod>2025-01-07T16:50:07.469Z</lastmod>
   </url>
   <url>
     <loc>https://edenian-prince.github.io/blog/posts/post-with-code/index.html</loc>
-    <lastmod>2024-12-04T17:32:21.124Z</lastmod>
+    <lastmod>2025-01-07T16:50:07.469Z</lastmod>
+  </url>
+  <url>
+    <loc>https://edenian-prince.github.io/blog/about.html</loc>
+    <lastmod>2025-01-07T16:50:07.465Z</lastmod>
+  </url>
+  <url>
+    <loc>https://edenian-prince.github.io/blog/posts/welcome/index.html</loc>
+    <lastmod>2025-01-07T16:50:07.469Z</lastmod>
+  </url>
+  <url>
+    <loc>https://edenian-prince.github.io/blog/posts/2024-08-21-translate-md-files/index.html</loc>
+    <lastmod>2025-01-07T16:50:07.466Z</lastmod>
   </url>
 </urlset>
