@@ -10,10 +10,10 @@
 //   - https://github.com/typst/templates
 
 // 2023-10-09: #fa-icon("fa-info") is not working, so we'll eval "#fa-info()" instead
-#let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: rgb("#9cbe5b")) = {
+#let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: rgb("#3722af")) = {
   block(
     breakable: false, 
-    fill: rgb("#a6c72e"), 
+    fill: rgb("#452ec7"), 
     stroke: (paint: icon_color, thickness: 0.5pt, cap: "round"), 
     width: 100%, 
     radius: 2pt,
@@ -22,7 +22,7 @@
       width: 100%, 
       below: 0pt, 
       block(
-        fill: rgb("#c03c14"), 
+        fill: rgb("#16c57c"), 
         width: 100%, 
         inset: 8pt)[#text(icon_color, weight: 900)[#icon] #title]) +
       if(body != []){

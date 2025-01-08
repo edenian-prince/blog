@@ -12,6 +12,27 @@ categories:
 #     toc: true
 ---
 
+:::: {.splash-page}
+
+## Override quarto callouts colors in typst
+
+
+::::{.columns}
+::: {.column width="50%"}
+### Go from this
+
+![original callout](og_callout.png)
+
+:::
+
+::: {.column width="50%"}
+### To this, in typst
+
+![new callout](new_callout.png)
+:::
+::::
+::::
+
 This is in reply to a question I saw on bluesky about how to change callout block colors in typst. It's relatively easy in latex but can be confusing in Typst if you've never done it. **I have an example file and output that I'll walk through**
 
 - [example file link](https://github.com/edenian-prince/blog/blob/main/posts/2025-01-07-typst-colors/_colors.qmd)
