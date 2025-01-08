@@ -73,11 +73,11 @@ format:
 ---
 ```
 
-now render your document and scan the output .typ file for callout blocks
+4. now render your document and look through the output `.typ` file for the callout block function
 
-3. when you find the callout block function, copy it and put it in your typst-template. you might need a basic understanding of Typst in order to see where to place the function. it will look like this:
+3. when you find the callout block function, copy it and put it in your typst-template. you might need a basic understanding of Typst in order to see where to place the function. **Put the function before the `#let article` function**. it will look like this:
 
-```markdown
+```rust
 #let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: rgb("#9cbe5b")) = {
   block(
     breakable: false, 
@@ -104,11 +104,11 @@ now render your document and scan the output .typ file for callout blocks
 
 ```
 
-There are fill variables that you can change to be the colors you want.
+5. Now you can change the fill colors and icon colors to whatever you want by adjusting them in that function.
 
 <br>
 
-Now you can just render the qmd file and it should change the colors.
+From here you can just render the qmd file and it should change the colors.
 
 
 ## Changing typst within the qmd
