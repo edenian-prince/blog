@@ -270,36 +270,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> typst-show.typ</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">keep-typ</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>now render your document and scan the output .typ file for callout blocks</p>
-<ol start="3" type="1">
-<li>when you find the callout block function, copy it and put it in your typst-template. you might need a basic understanding of Typst in order to see where to place the function. it will look like this:</li>
+<ol start="4" type="1">
+<li><p>now render your document and look through the output <code>.typ</code> file for the callout block function</p></li>
+<li><p>when you find the callout block function, copy it and put it in your typst-template. you might need a basic understanding of Typst in order to see where to place the function. <strong>Put the function before the <code>#let article</code> function</strong>. it will look like this:</p></li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>#let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: rgb("#9cbe5b")) = {</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>#let callout(body<span class="op">:</span> []<span class="op">,</span> title<span class="op">:</span> <span class="st">"Callout"</span><span class="op">,</span> background_color<span class="op">:</span> rgb(<span class="st">"#dddddd"</span>)<span class="op">,</span> icon<span class="op">:</span> none<span class="op">,</span> icon_color<span class="op">:</span> rgb(<span class="st">"#9cbe5b"</span>)) <span class="op">=</span> <span class="op">{</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  block(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    breakable: false, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    fill: rgb("#a6c72e"), // I changed the color here</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    stroke: (paint: icon_color, thickness: 0.5pt, cap: "round"), </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    width: 100%, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    radius: 2pt,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    breakable<span class="op">:</span> <span class="cn">false</span><span class="op">,</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    fill<span class="op">:</span> rgb(<span class="st">"#a6c72e"</span>)<span class="op">,</span> <span class="co">// I changed the color here</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    stroke<span class="op">:</span> (paint<span class="op">:</span> icon_color<span class="op">,</span> thickness<span class="op">:</span> <span class="dv">0</span><span class="op">.</span>5pt<span class="op">,</span> cap<span class="op">:</span> <span class="st">"round"</span>)<span class="op">,</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    width<span class="op">:</span> <span class="dv">100</span><span class="op">%,</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    radius<span class="op">:</span> 2pt<span class="op">,</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    block(</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      inset: 1pt,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      width: 100%, </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      below: 0pt, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      inset<span class="op">:</span> 1pt<span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      width<span class="op">:</span> <span class="dv">100</span><span class="op">%,</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      below<span class="op">:</span> 0pt<span class="op">,</span> </span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      block(</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        fill: rgb("#c03c14"), </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        width: 100%, </span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        inset: 8pt)<span class="co">[</span><span class="ot">#text(icon_color, weight: 900)[#icon] #title</span><span class="co">]</span>) +</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      if(body != []){</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        fill<span class="op">:</span> rgb(<span class="st">"#c03c14"</span>)<span class="op">,</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        width<span class="op">:</span> <span class="dv">100</span><span class="op">%,</span> </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        inset<span class="op">:</span> 8pt)[#text(icon_color<span class="op">,</span> weight<span class="op">:</span> <span class="dv">900</span>)[#icon] #title]) <span class="op">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(body <span class="op">!=</span> [])<span class="op">{</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        block(</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>          inset: 1pt, </span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>          width: 100%, </span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>          block(fill: white, width: 100%, inset: 8pt, body))</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>          inset<span class="op">:</span> 1pt<span class="op">,</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>          width<span class="op">:</span> <span class="dv">100</span><span class="op">%,</span> </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>          block(fill<span class="op">:</span> white<span class="op">,</span> width<span class="op">:</span> <span class="dv">100</span><span class="op">%,</span> inset<span class="op">:</span> 8pt<span class="op">,</span> body))</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are fill variables that you can change to be the colors you want.</p>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li>Now you can change the fill colors and icon colors to whatever you want by adjusting them in that function.</li>
+</ol>
 <p><br></p>
-<p>Now you can just render the qmd file and it should change the colors.</p>
+<p>From here you can just render the qmd file and it should change the colors.</p>
 </section>
 <section id="changing-typst-within-the-qmd" class="level2">
 <h2 class="anchored" data-anchor-id="changing-typst-within-the-qmd">Changing typst within the qmd</h2>
