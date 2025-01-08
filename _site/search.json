@@ -11,7 +11,14 @@
     "href": "posts/2025-01-07-typst-colors/index.html",
     "title": "Customizing Typst",
     "section": "",
-    "text": "This is in reply to a question I saw on bluesky about how to change callout block colors in typst. It’s relatively easy in latex but can be confusing in Typst if you’ve never done it. I have an example file and output that I’ll walk through"
+    "text": "original callout\n\n\n\n\n\n\n\n\n\nnew callout\nThis is in reply to a question I saw on bluesky about how to change callout block colors in typst. It’s relatively easy in latex but can be confusing in Typst if you’ve never done it. I have an example file and output that I’ll walk through"
+  },
+  {
+    "objectID": "posts/2025-01-07-typst-colors/index.html#override-quarto-callouts-colors-in-typst",
+    "href": "posts/2025-01-07-typst-colors/index.html#override-quarto-callouts-colors-in-typst",
+    "title": "Customizing Typst",
+    "section": "",
+    "text": "original callout\n\n\n\n\n\n\n\n\n\nnew callout"
   },
   {
     "objectID": "posts/2025-01-07-typst-colors/index.html#how-to",
