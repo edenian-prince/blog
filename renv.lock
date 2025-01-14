@@ -565,13 +565,11 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "1.0.7",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "utils"
-      ],
-      "Hash": "397b7b2a265bc5a7a06852524dabae20"
+      "Version": "1.0.11",
+      "OS_type": null,
+      "NeedsCompilation": "no",
+      "Repository": "P3M",
+      "Source": "Repository"
     },
     "reticulate": {
       "Package": "reticulate",

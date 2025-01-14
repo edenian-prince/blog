@@ -1,0 +1,299 @@
+/*-- scss:defaults --*/
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #f0f0f0;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// $primary: #440154ff;
+$primary: #fdfdfd;
+$secondary: #062a4a;
+$tertiary: rgb(92, 170, 63);
+
+$theme-white: #F7F8F9;
+$theme-yellow: #E8D4AD;
+$theme-darksand: #D0927D;
+$theme-night: #060708;
+$theme-ground: #416270;
+
+// water secondary 
+$water1: #48BDF3;
+$water2: #1E6CB2;
+$water3: #184C86;
+$water0: #F2F2F2;
+
+// water main
+$theme-water: #dae9f9;
+$theme-watershadow: #C6DFF9;
+$theme-ocean: #051525;
+
+// navbar text
+// $navbar-fg: #f5eff6;
+$navbar-fg: $theme-night;
+$light-bg: #f8f5f9;
+$link-color: $tertiary; 
+// #051525;
+
+// fonts
+$font-family-sans-serif: 'JetBrains Mono', sans-serif;
+// $presentation-heading-font: 'JetBrains Mono', serif;
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url('https://rsms.me/inter/inter.css');
+
+
+/*-- scss:rules --*/
+
+// remove the gap at the start of the page
+main {
+	margin-top: 0em;
+	margin-bottom: 1em;
+}
+
+#title-block-header {
+
+	margin-top: -20px;
+}
+
+// for links
+ /* unvisited link */
+ a:link {
+    color: rgb(59, 3, 110);
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(13, 0, 128);
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  } 
+
+// color for highlight style
+// pre code {
+//   padding-left: 5%;
+// }
+
+pre code.sourceCode {
+  padding-left: 0;
+  font-family: "JetBrains Mono", monospace;
+}
+
+// .downlit code a:any-link {
+//   text-decoration: underline;
+//   text-decoration-color: $purple;
+// }
+
+// div.sourceCode {
+//   background-color: rgba(192, 192, 192, 0.842);
+//   border: 1px solid rgba(192,192,192,.842);
+//   border-radius: .25rem;
+// }
+
+// Output colors
+.watch {
+  background-color: lightpurple;
+  border: 3px solid purple;
+  font-weight: bold;
+}
+
+.smallframe {
+  /*box-shadow: $back-blue 10px 5px 5px 0px;*/
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px !important;
+  box-shadow: 0 20px 47px rgb(0 0 0 / 55%);
+  width: 400px;
+  /*margin: auto !important;*/
+  
+}
+
+.winder {
+    padding: 64px;
+    padding-top: 64px;
+    padding-right: 64px;
+    padding-bottom: 64px;
+    padding-left: 64px;
+}
+
+.medframe {
+  /*box-shadow: $back-blue 10px 5px 5px 0px;*/
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px !important;
+  box-shadow: 0 20px 47px rgb(0 0 0 / 55%);
+  width: 915px;
+  /*margin: auto !important;*/
+  
+}
+
+
+.myframe {
+  /*box-shadow: $back-blue 10px 5px 5px 0px;*/
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px !important;
+  box-shadow: 0 20px 47px rgb(0 0 0 / 55%);
+  /*margin: auto !important;*/
+  
+}
+
+.myframe2 {
+  /*box-shadow: $back-blue 10px 5px 5px 0px;*/
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px !important;
+  box-shadow: 0 20px 47px rgb(0 0 0 / 55%);
+  /*width: fit-content;*/
+  /*margin: auto !important;*/
+}
+
+.pic-border{
+    border: 5px solid black;
+    padding: 5px;
+}
+
+/* Styling of panel tabset */
+.panel-tabset {
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 0px;
+    margin: 0px 0px 16px 0px;
+  }
+  
+  pre {
+    margin: 0px
+  }
+  
+  .tab-content {
+    border: none; 
+    outline: none; 
+    margin: 0px
+  }
+  
+  .nav-item[role="presentation"] {
+    border: none; 
+    outline: none;
+    min-width: 92px;
+    text-align: center  ;
+  }
+  
+  .nav-link {
+    border: none; 
+    outline: none; 
+  }
+  
+  .nav-tabs {
+    border: 0px 0px 2px 0px; 
+    outline: none; 
+  }
+  
+  .nav-link:hover {
+    border: none; 
+    outline: none; 
+    color: black;
+  }
+  
+  .nav-link[role="tab"].active {
+    outline: none; 
+    font-weight: bold;
+    transition: none;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 4px solid var(--bs-emphasis-color); 
+  }
+  
+  .nav-link {
+    border: none; 
+    outline: none; 
+    font-weight: light;
+    color: black;
+    transition: none;
+  }
+
+  
+
+  .codewindow {
+    overflow-wrap: anywhere;
+    margin-bottom: 36px;
+    // font-size: 0.45em;
+    // font-family: monospace;
+    background: white;
+    border-radius: 10px;
+    box-shadow: #26394d 0px 20px 30px -10px;
+  }
+   
+  .codewindow .header {
+    display: flex;
+    background: #e2e8f0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 16px;
+    gap: 16px;
+    height: 30px;
+  }
+  
+  .codewindow .header .file p{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    background: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 90%;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .codewindow .textarea {
+    padding: 21px;
+    padding-top: 1px;
+  }
+   
+  .codewindow .textarea .sourceCode {
+    background: unset;
+    border: unset;
+    font-size: unset;
+  }
+  
+  .codewindow .textarea pre {
+    font-size: unset;
+  }
+
+
+  .splash-page {
+    // padding: 50px 0;
+    // width: 100%;
+    // background-color: $gray-300;
+    // translate: 120px;
+    background-color: $gray-200;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  }
+  

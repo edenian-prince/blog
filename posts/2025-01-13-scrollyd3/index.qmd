@@ -1,0 +1,534 @@
+---
+format:
+      closeread-html:
+            theme: [cosmo, styles.scss]
+            smooth-scroll: true
+            code-fold: true
+            cr-section:
+                  layout: sidebar-left
+            cr-style:
+                  narrative-background-color-sidebar: "#021525"
+                  section-background-color: "#f6f9fc"
+                  narrative-text-color-sidebar: "#fdfdfd"
+                  # narrative-overlay-max-width: 
+knitr: true
+---
+
+:::::: cr-section
+::: {focus-on="cr-title"}
+## Closeread OJS D3.js Interaction ![](images/water-wave.png){style="position: relative; top: -2.5px;" width="40"}
+
+frank aragona
+:::
+
+:::: {#cr-title}
+::: splash-page
+## Overview
+
+-   How to use closeread with Observable JS
+-   How to make cool interactive plots when the user scrolls
+-   An intro to D3.js
+:::
+::::
+::::::
+
+:::::::: cr-section
+:::::: progress-block
+::: {focus-on="cr-ploty"}
+Here's the main plot, scroll down.
+:::
+
+::: {focus-on="cr-ploty"}
+```{r}
+#| label: counts
+#| echo: false
+#| message: false
+#| warning: false
+#| 
+library(tidyverse)
+library(gt)
+library(gtExtras)
+style_table <- function(df){
+  
+  df %>%
+    #All column headers are capitalised
+    opt_all_caps() %>% 
+    #Use the Chivo font
+    #Note the great 'google_font' function in 'gt' that removes the need to pre-load fonts
+    opt_table_font(
+      font = list(
+        google_font("JetBrains Mono"),
+        default_fonts()
+      )
+    ) %>%
+    tab_options(
+      #Remove border between column headers and title
+      column_labels.border.top.width = px(3),
+      column_labels.border.top.color = "black",
+      #Remove border around table
+      table.border.top.color = "black",
+      table.border.bottom.color = "black",
+      #Reduce the height of rows
+      data_row.padding = px(3),
+      data_row.padding.horizontal = px(10),
+      #Adjust font sizes and alignment
+      source_notes.font.size = 12,
+      heading.align = "left"
+    ) %>%
+    # We use tab_style() to change style of cells
+    # cell_borders() provides the formatting
+    # locations tells it where
+    # Add black borders to the bottom of all the column labels
+    tab_style(
+      style = list(
+        cell_borders(
+          sides = "bottom",
+          color = "black",
+          weight = px(3)
+        )
+      ),
+      locations = list(
+        cells_column_labels(
+          columns = gt::everything()
+        )
+      )
+    )
+}
+
+df <- read_csv("repo_data_test.csv")
+
+df %>%
+  count(language) %>%
+  arrange(desc(n)) %>%
+  summarize(
+    n,
+    x_scaled = n / nrow(df) * 100,
+    .by = language
+  ) %>%
+  gt() %>%
+  gt_plt_bar_pct(
+    column = x_scaled,
+    scaled = TRUE,
+    labels = TRUE,
+    font_size = "12px",
+    fill = "#48c8df"
+  ) %>%
+  fmt_number(
+    columns = n,
+    decimals = 0,
+    use_seps = T
+  ) %>%
+  cols_label(
+    language = 'Top Language',
+    n = 'Count',
+    x_scaled = 'Percent of Total '
+  ) %>%
+    style_table()
+
+```
+:::
+
+::: {focus-on="cr-ploty"}
+```{r}
+#| label: big-repos
+#| echo: false
+#| message: false
+#| warning: false
+
+df %>%
+  arrange(desc(commits)) %>%
+  slice(1:5) %>%
+  select(repo, commits, language, url) %>%
+  gt() %>%
+  cols_label(
+    repo = 'Repo',
+    commits = 'Commits',
+    language = 'Top Language',
+    url = 'url'
+  ) %>%
+    style_table()
+```
+:::
+::::::
+
+::: {#cr-ploty}
+```{ojs}
+
+node_data = FileAttachment("repo_data_test.csv").csv()
+
+
+nodes = node_data.map(d => Object.create(d))
+
+// bfScale = d3.scaleLinear()
+//   .domain([1, 5])
+//   .range([1930, 2020])
+//   .clamp(true)
+    
+scan = crTriggerIndex
+
+chart_param = ({
+  width: width,
+  height: 600,
+  margin: {
+    top: 50,
+    right: 40,
+    bottom: 80,
+    left: 60,
+    center: 150
+  }
+})
+
+chart = {
+  // Define base scales for positioning circles
+  const x = d3.scaleLinear()
+    .domain([0, 1])
+    .range([chart_param.margin.left, chart_param.width - chart_param.margin.right]);
+
+  const y = d3.scaleLinear()
+    .domain([0, 1])
+    .range([chart_param.height - chart_param.margin.bottom, chart_param.margin.top]);
+
+  // Initialize SVG container
+  const svg = d3.select(DOM.svg(chart_param.width, chart_param.height));
+
+  // Append title and subtitle
+  svg.append("text")
+    .attr("x", chart_param.width / 2)
+    .attr("y", chart_param.margin.top - 25)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "20px")
+    .attr("font-weight", "bold")
+    .text("Beeswarm Plot of GitHub Repos Over Time");
+
+  svg.append("text")
+    .attr("x", chart_param.width / 2)
+    .attr("y", chart_param.margin.top - 10)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "14px")
+    .attr("font-weight", "normal")
+    .text("A visualization of repositories in the DOH-EPI-Coders organization");
+
+  // Preprocess data: Map any language that isn't "R" or "Python" to "Other"
+  node_data.forEach(d => {
+    if (d.language === "Jupyter Notebook") {
+      d.language = "Python";
+    } else if (d.language !== "R" && d.language !== "Python") {
+      d.language = "Other";
+    }
+  });
+
+  // Group nodes by language using d3.group
+  const languages = d3.group(node_data, d => d.language);
+
+  // Viridis colors for languages
+  const colorScale = d3.scaleOrdinal()
+  .domain(["R", "Python", "Other"])  // List of languages you want to color
+  .range(["#440154", "#3B528B", "#287D49"]);  // Adjusted Viridis colors with more green
+
+  // Scale for node radius based on the number of commits
+  const radiusScale = d3.scaleLog()
+    .domain([1, 5000])  // Adjust the domain to your data range
+    .range([1, 13]);      // Adjust the range for the circle radius
+
+  // Define x scale based on create_date for grouping by date
+  const xScale = d3.scaleTime()
+    .domain([new Date("2020-01-01"), new Date("2026-01-01")]) // Set date range
+    .range([chart_param.margin.left, chart_param.width - chart_param.margin.right]);
+
+  // Set up the y-scale based on language groups
+  const yScale = d3.scaleBand()
+    .domain(Array.from(languages.keys()))  // Use the language groups as domain
+    .range([chart_param.margin.top, chart_param.height - chart_param.margin.bottom])
+    .padding(0.1);  // Add padding for spacing between the groups
+
+  function createNodes(scan) {
+    // Sort repos by commits in descending order and get the top 5 for scan == 3
+    const topRepos = scan === 3 ? node_data.sort((a, b) => b.commits - a.commits).slice(0, 5) : [];
+    const topRepoCommits = new Set(topRepos.map(d => d.commits));
+
+    // Initialize simulation with the base forces
+    const sim = d3
+      .forceSimulation(node_data)
+      .force("x", d3.forceX(d => xScale(new Date(d.create_date))))  // Position along the X-axis based on create_date
+      .force("collide", d3.forceCollide().radius(d => radiusScale(d.commits) + 1).strength(0.5));  // Default collision force
+
+    // If `scan > 1`, apply additional forces for language grouping
+    if (scan > 1) {
+      // Apply additional y-force to divide nodes by language
+      sim.force("y", d3.forceY(d => yScale(d.language) + 70))  // Position nodes along y-axis based on language
+        .force("collide", d3.forceCollide().radius(d => radiusScale(d.commits) + 1).strength(0.8));  // Adjust collision force
+
+      // Create x-axis for years
+      const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y"));
+      const xAxisGroup = svg.append("g")
+      .attr("transform", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)
+      .call(xAxis);
+    
+        // Style x-axis labels (make them bold and larger)
+        xAxisGroup.selectAll("text")
+        .attr("font-size", "16px")    // Set font size to 16px or any value you prefer
+        .attr("font-weight", "bold"); // Make the labels bold
+
+        // Create y-axis for language groups
+        const yAxis = d3.axisLeft(yScale);
+        const yAxisGroup = svg.append("g")
+        .attr("transform", `translate(${chart_param.margin.left}, 0)`)
+        .call(yAxis);
+        
+        // Style y-axis labels (make them bold and larger)
+        yAxisGroup.selectAll("text")
+        .attr("font-size", "15px")    // Set font size to 16px or any value you prefer
+        .attr("font-weight", "bold"); // Make the labels bold
+      
+    } else {
+      // For `scan === 1`, apply the default force with no language division
+      sim.force("y", d3.forceY(chart_param.height / 2))  // All nodes at the center of Y-axis
+        .force("collide", d3.forceCollide().radius(d => radiusScale(d.commits) + 1).strength(0.5));  // Default collision force
+
+      // Create x-axis for years
+      const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y"));
+      const xAxisGroup = svg.append("g")
+      .attr("transform", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)
+      .call(xAxis);
+    
+    // Style x-axis labels (make them bold and larger)
+    xAxisGroup.selectAll("text")
+      .attr("font-size", "16px")    // Set font size to 16px or any value you prefer
+      .attr("font-weight", "bold"); // Make the labels bold
+
+    }
+
+    // Restart the simulation to apply the changes
+    sim.alpha(1)
+      .alphaDecay(0.05)
+      .restart();
+
+    // Bind data and draw nodes
+    const node = svg.selectAll(".node")
+      .data(node_data)
+      .enter()
+      .append("circle")
+      .attr("class", "node")
+      .attr("r", d => radiusScale(d.commits))  // Set the radius based on the 'commits' field
+      .attr("cx", d => xScale(new Date(d.create_date)))  // Set initial x position based on date
+      .attr("cy", d => scan > 1 ? yScale(d.language) : chart_param.height / 2)  // Correct y position based on language
+      .style("fill", (d) => topRepoCommits.has(d.commits) ? "orange" : colorScale(d.language))  // Highlight top 5 repos with orange
+      .style("opacity", (d) => topRepoCommits.has(d.commits) ? 1 : 0.6);  // Lower opacity for non-top 5 repos
+
+    // Add tooltips with repo info
+    node.append("title")
+      .text(d =>
+        `Repo: ${d.repo}\n` +
+        `Commits: ${d.commits}\n` +
+        `Contributors: ${d.contributors}\n` +
+        `Create Date: ${d.create_date}`
+      );
+
+    // Hover effect to change circle color to red on mouseover, revert on mouseout
+    node.on("mouseover", function(event, d) {
+    d3.select(this)
+      .attr("fill", "red")  // Change the fill color to red on mouseover
+      .attr("stroke", "black")  // Add black border
+      .attr("stroke-width", 2);  // Set the border width
+  })
+  .on("mouseout", function(event, d) {
+    d3.select(this)
+      .attr("fill", (d) => topRepoCommits.has(d.commits) ? "orange" : colorScale(d.language))  // Reset the fill color
+      .attr("stroke", null)  // Remove the border on mouse out
+      .attr("stroke-width", null);  // Reset the border width
+  });
+
+    // Show detailed data on click with line breaks
+    node.on("click", function(event, d) {
+      const clickTooltip = d3.select("body").append("div")
+        .attr("class", "click-tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background", "rgba(0, 0, 0, 0.7)")
+        .style("color", "white")
+        .style("border-radius", "4px")
+        .style("padding", "10px")
+        .style("font-size", "14px")
+        .html(`
+          <strong>Repo:</strong> ${d.repo}<br>
+          <strong>Commits:</strong> ${d.commits}<br>
+          <strong>Contributors:</strong> ${d.contributors}<br>
+          <strong>Create Date:</strong> ${d.create_date}
+        `);
+
+      clickTooltip.style("visibility", "visible")
+        .style("top", `${event.pageY + 10}px`)
+        .style("left", `${event.pageX + 10}px`);
+
+      // Close the click tooltip after 3 seconds (optional)
+      setTimeout(() => {
+        d3.select(".click-tooltip").remove();
+      }, 3000);
+    });
+
+    // Update circle positions on each tick of the simulation
+    sim.on("tick", () => {
+      node
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+    });
+  }
+
+  // Main logic to check `scan` value and call createNodes accordingly
+  createNodes(scan);  // Pass `scan` to createNodes to handle the different plot configurations
+
+  return svg.node();
+};
+```
+:::
+::::::::
+
+<br> <br>
+
+## How it works
+
+The [closeread docs for ojs are great](https://closeread.dev/gallery/demos/ojs-variables/) - I highly recommend reading through that document.
+
+They use `crProgressBlock` as a variable to indicate how far along the page a user has scrolled.
+
+They then take that variable and apply some basic math to it. For example, when the user starts scrolling at 0%, they set the variable `angle1` to be `-180`. And `angle1` will change as the user scrolls down until it gets to angle = `0`. Like this:
+
+``` markdown
+angleScale1 = d3.scaleLinear()
+  .domain([0, 1])
+  .range([-180, 0])
+  .clamp(true)
+    
+angle1 = angleScale1(crProgressBlock)
+```
+
+## What you need to do - user scroll locations
+
+1.  put this chunk in your quarto document and run `quarto preview`. Note that the last variable is a variable you can derive
+
+```` yaml
+:::{.counter style="position: fixed; top: 10px; right: 10px; background-color: skyblue; border-radius: 5px; padding: 18px 18px 0 18px; line-height: .8em;"}
+```{ojs}
+md`Active sticky: ${crActiveSticky}`
+md`Active trigger: ${crTriggerIndex}`
+md`Trigger progress: ${(crTriggerProgress * 100).toFixed(1)}%`
+md`Scroll direction: ${crDirection}`
+md`Progress Block progress: ${(crProgressBlock * 100).toFixed(1)}%`
+md`-----`
+md`(derived) derived var1: ${bf1.toFixed(1)}°`
+```
+:::
+````
+
+2.  scroll on the script and the blue tab on the upper right will tell you what those variables equal when the user scrolls through the site
+
+3.  now you can see how variables change
+
+4.  assign that variable to something in ojs, such as `scan = crTriggerIndex`
+
+## What you need to do - learn some D3
+
+Now you have `scan = crTriggerIndex`, a variable in ojs that gets updated when a user scrolls. We can use this variable in our plot.
+
+1.  I used [D3.js](https://d3js.org/) to make the beeswarm plot
+
+2.  use [Observable](https://observablehq.com/) to design the plot (and chatGPT to guide you with the code)
+
+3.  for a D3.js introduction, you **NEED** to [read this document](https://observablehq.com/@ben-tanen/a-tutorial-to-using-d3-force-from-someone-who-just-learned-ho)
+
+    -   especially this part: it shows how D3 visuals are broken down into parts
+
+> Structure of d3-force simulations Before we dive into the specific forces that we'll use, let's briefly discuss the general structure used to create a force-directed graph.
+
+> // 1. create a copy of the node data `nodes = node_data.map(d =\> Object.create(d))`
+>
+> // 2. create new force simulation specifying the forces to use // and, in our case, how many "ticks" or frames we'll want to simulate 
+
+```markdown
+sim = d3.forceSimulation(nodes) .force("force_name", ...) // ... chain together as many forces as we want .stop() .tick(n_frames_to_simulate)
+```
+>
+> // 3. bind data and draw nodes 
+> `node = svg.selectAll(".node") .data(nodes).enter() // ... specify node position, radius, etc. as we normally would`
+>
+> // 4. indicate how we should update the graph for each tick 
+
+> `sim.on("tick", () =\> { // ... specify how we should move nodes/edges given new positional data })`
+
+> **Step one** is to create a copy of our initial node data (position, radius, etc.) so that we can pass this copy rather than our original data to `d3.forceSimulation()`. This is because as we simulate forces, the `d3.forceSimulation()` function will update whatever array of data we pass it to reflect how forces are influencing our nodes so if we have any intention of re-using our initial node data after we start simulating, we'll want to copy it first. However, if you are only doing one simulation and do not need preserve the initial data, you don't necessarily need to worry about copying your data.
+>
+> **Step two** is to actually make our simulation by first passing our (copied) array of data to `d3.forceSimulation()`. We can then add/chain whatever forces we would like to use with `force(...)` (more on this below). In our case, once we have defined the behavior of the simulation, we will then explictly stop the simulation before it has a chance to start so that we can specify how many frames or ticks we would like to run of our simulation. We do this below so that we can control where we are in the simulation with scrubbers, but without doing this, the simulation will simply start and continue to run on it's own.
+>
+> **Step three** is to simply bind our data and draw our nodes as we would for any static graph. Because we are binding our nodes to the same data that is passed to `d3.forceSimulation()`, as our simulation runs, we can simply rely on the next and final step to update our nodes with new positioning.
+>
+> **Step four** is to end by indicating how we should update our nodes at each step as the simulation applies forces. The simulation will be updating the underlying positional data array (`nodes`) that is already bound to our drawn elements so we just have specify moving each node to its new position.
+
+
+## What you need to do - put it together
+
+I went back and forth with chatGPT *a lot*, and I read a lot of documentation to make the visual. But it was worth it. I feel like I have a better understanding of D3. 
+
+1. For my beeswarm plot, I make a base plot that has minimal D3 forces applied to it, it looks like this:
+
+```markdown
+// Initialize simulation with the base forces
+    const sim = d3
+      .forceSimulation(node_data)
+      .force("x", d3.forceX(d => xScale(new Date(d.create_date))))  // Position along the X-axis based on create_date
+      .force("collide", d3.forceCollide().radius(d => radiusScale(d.commits) + 1).strength(0.5));  // Default collision force
+
+```
+
+2. Then I used the `scan` variable I created above that is linked to closeread's scroll trigger to dynamically add new D3 forces to the plot:
+
+```markdown
+// If `scan > 1`, apply additional forces for language grouping
+if (scan > 1) {
+  // Apply additional y-force to divide nodes by language
+  sim.force("y", d3.forceY(d => yScale(d.language) + 70))  // Position nodes along y-axis based on language
+    .force("collide", d3.forceCollide().radius(d => radiusScale(d.commits) + 1).strength(0.8));  // Adjust collision force
+
+  // Create x-axis for years
+  const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y"));
+  const xAxisGroup = svg.append("g")
+  .attr("transform", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)
+  .call(xAxis);
+
+    // Style x-axis labels (make them bold and larger)
+    xAxisGroup.selectAll("text")
+    .attr("font-size", "16px")    // Set font size to 16px or any value you prefer
+    .attr("font-weight", "bold"); // Make the labels bold
+
+    // Create y-axis for language groups
+    const yAxis = d3.axisLeft(yScale);
+    const yAxisGroup = svg.append("g")
+    .attr("transform", `translate(${chart_param.margin.left}, 0)`)
+    .call(yAxis);
+    
+    // Style y-axis labels (make them bold and larger)
+    yAxisGroup.selectAll("text")
+    .attr("font-size", "15px")    // Set font size to 16px or any value you prefer
+    .attr("font-weight", "bold"); // Make the labels bold
+  
+} else {
+  // For `scan === 1`, apply the default force with no language division
+  sim.force("y", d3.forceY(chart_param.height / 2))  // All nodes at the center of Y-axis
+    .force("collide", d3.forceCollide().radius(d => radiusScale(d.commits) + 1).strength(0.5));  // Default collision force
+
+  // Create x-axis for years
+  const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y"));
+  const xAxisGroup = svg.append("g")
+  .attr("transform", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)
+  .call(xAxis);
+
+// Style x-axis labels (make them bold and larger)
+xAxisGroup.selectAll("text")
+  .attr("font-size", "16px")    // Set font size to 16px or any value you prefer
+  .attr("font-weight", "bold"); // Make the labels bold
+
+}
+
+```
+
+3. You can see a conditional statement: when `scan >1` then the plot will get split into a plot by the `language` variable, and a new y axis will be added to the plot. Else, when `scan === 1` then the plot has a base force with the regular x axis only
+
