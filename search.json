@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "blog",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Closeread OJS D3.js Interaction \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCustomizing Typst\n\n\n\n\n\n\ntypst\n\n\nquarto\n\n\n\nChanging callout block colors and more\n\n\n\n\n\nJan 7, 2025\n\n\nFrank Aragona\n\n\n\n\n\n\n\n\n\n\n\n\nTranslating Quarto (and other markdown files) into Any Language\n\n\n\n\n\n\ntranslation\n\n\nquarto\n\n\n\nTranslating the language of the text, not the programming language!\n\n\n\n\n\nAug 21, 2024\n\n\nFrank Aragona\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nAug 20, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 17, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "About this blog"
   },
   {
     "objectID": "posts/2025-01-07-typst-colors/index.html",
@@ -35,6 +35,76 @@
     "text": "Changing typst within the qmd\nYou can also write Typst code inside of the qmd file.\nIf you have some text that you want to decorate, you can surround the text in code like this\n```{=typst}\n    #parameters-here()[ code here\n```\nregular markdown text here\n\n```{=typst}\n    ] //end function bracket here\n```\nHere I’m importing a custom typst library, tweaking some parameters, and wrapping it around regular markdown text:\n```{=typst}\n#import \"@preview/showybox:2.0.1\": showybox\n\n// Second showybox\n#showybox(\n  title-style: (\n    boxed-style: (\n      anchor: (\n        x: center,\n        y: horizon\n      ),\n      radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt),\n    )\n  ),\n  frame: (\n    title-color: green.darken(40%),\n    body-color: green.lighten(80%),\n    footer-color: green.lighten(60%),\n    border-color: green.darken(60%),\n    radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)\n  ),\n  title: \"Key Findings\",\n  footer: text(size: 10pt, weight: 600, emph(\"Please see Situation Updates for COE group updates\"))\n)[\n  \n```\n:::{.content-visible when-format=\"html\"}\n# Key Findings\n:::\n\n-   Current data reflects a mixture of x descendents as the.\\\n-   Globally no other x with unusual characteristics have been identified as having unusual growth.\n-   Some other point\n\n```{=typst}\n    ]\n```\nand it gives this as a result:"
   },
   {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "edenian blog",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCloseread OJS D3.js Interaction \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCustomizing Typst\n\n\nChanging callout block colors and more\n\n\n\nJan 7, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTranslating Quarto (and other markdown files) into Any Language\n\n\nTranslating the language of the text, not the programming language!\n\n\n\nAug 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nAug 20, 2024\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nAug 17, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2025-01-13-scrollyd3/index.html",
+    "href": "posts/2025-01-13-scrollyd3/index.html",
+    "title": "edenian blog",
+    "section": "",
+    "text": "frank aragona\n\n\n\n\n\n\n\n\n\nHow to use closeread with Observable JS\nHow to make cool interactive plots when the user scrolls\nAn intro to D3.js"
+  },
+  {
+    "objectID": "posts/2025-01-13-scrollyd3/index.html#closeread-ojs-d3.js-interaction",
+    "href": "posts/2025-01-13-scrollyd3/index.html#closeread-ojs-d3.js-interaction",
+    "title": "edenian blog",
+    "section": "",
+    "text": "frank aragona"
+  },
+  {
+    "objectID": "posts/2025-01-13-scrollyd3/index.html#overview",
+    "href": "posts/2025-01-13-scrollyd3/index.html#overview",
+    "title": "edenian blog",
+    "section": "",
+    "text": "How to use closeread with Observable JS\nHow to make cool interactive plots when the user scrolls\nAn intro to D3.js"
+  },
+  {
+    "objectID": "posts/2025-01-13-scrollyd3/index.html#how-it-works",
+    "href": "posts/2025-01-13-scrollyd3/index.html#how-it-works",
+    "title": "edenian blog",
+    "section": "How it works",
+    "text": "How it works\nThe closeread docs for ojs are great - I highly recommend reading through that document.\nThey use crProgressBlock as a variable to indicate how far along the page a user has scrolled.\nThey then take that variable and apply some basic math to it. For example, when the user starts scrolling at 0%, they set the variable angle1 to be -180. And angle1 will change as the user scrolls down until it gets to angle = 0. Like this:\nangleScale1 = d3.scaleLinear()\n  .domain([0, 1])\n  .range([-180, 0])\n  .clamp(true)\n    \nangle1 = angleScale1(crProgressBlock)"
+  },
+  {
+    "objectID": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---user-scroll-locations",
+    "href": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---user-scroll-locations",
+    "title": "edenian blog",
+    "section": "What you need to do - user scroll locations",
+    "text": "What you need to do - user scroll locations\n\nput this chunk in your quarto document and run quarto preview. Note that the last variable is a variable you can derive\n\n:::{.counter style=\"position: fixed; top: 10px; right: 10px; background-color: skyblue; border-radius: 5px; padding: 18px 18px 0 18px; line-height: .8em;\"}\n```{ojs}\nmd`Active sticky: ${crActiveSticky}`\nmd`Active trigger: ${crTriggerIndex}`\nmd`Trigger progress: ${(crTriggerProgress * 100).toFixed(1)}%`\nmd`Scroll direction: ${crDirection}`\nmd`Progress Block progress: ${(crProgressBlock * 100).toFixed(1)}%`\nmd`-----`\nmd`(derived) derived var1: ${bf1.toFixed(1)}°`\n```\n:::\n\nscroll on the script and the blue tab on the upper right will tell you what those variables equal when the user scrolls through the site\nnow you can see how variables change\nassign that variable to something in ojs, such as scan = crTriggerIndex"
+  },
+  {
+    "objectID": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---learn-some-d3",
+    "href": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---learn-some-d3",
+    "title": "edenian blog",
+    "section": "What you need to do - learn some D3",
+    "text": "What you need to do - learn some D3\nNow you have scan = crTriggerIndex, a variable in ojs that gets updated when a user scrolls. We can use this variable in our plot.\n\nI used D3.js to make the beeswarm plot\nuse Observable to design the plot (and chatGPT to guide you with the code)\nfor a D3.js introduction, you NEED to read this document\n\nespecially this part: it shows how D3 visuals are broken down into parts\n\n\n\nStructure of d3-force simulations Before we dive into the specific forces that we’ll use, let’s briefly discuss the general structure used to create a force-directed graph.\n\n\n// 1. create a copy of the node data nodes = node_data.map(d =\\&gt; Object.create(d))\n// 2. create new force simulation specifying the forces to use // and, in our case, how many “ticks” or frames we’ll want to simulate\n\nsim = d3.forceSimulation(nodes) .force(\"force_name\", ...) // ... chain together as many forces as we want .stop() .tick(n_frames_to_simulate)\n\n// 3. bind data and draw nodes node = svg.selectAll(\".node\") .data(nodes).enter() // ... specify node position, radius, etc. as we normally would\n// 4. indicate how we should update the graph for each tick\n\n\nsim.on(\"tick\", () =\\&gt; { // ... specify how we should move nodes/edges given new positional data })\n\n\nStep one is to create a copy of our initial node data (position, radius, etc.) so that we can pass this copy rather than our original data to d3.forceSimulation(). This is because as we simulate forces, the d3.forceSimulation() function will update whatever array of data we pass it to reflect how forces are influencing our nodes so if we have any intention of re-using our initial node data after we start simulating, we’ll want to copy it first. However, if you are only doing one simulation and do not need preserve the initial data, you don’t necessarily need to worry about copying your data.\nStep two is to actually make our simulation by first passing our (copied) array of data to d3.forceSimulation(). We can then add/chain whatever forces we would like to use with force(...) (more on this below). In our case, once we have defined the behavior of the simulation, we will then explictly stop the simulation before it has a chance to start so that we can specify how many frames or ticks we would like to run of our simulation. We do this below so that we can control where we are in the simulation with scrubbers, but without doing this, the simulation will simply start and continue to run on it’s own.\nStep three is to simply bind our data and draw our nodes as we would for any static graph. Because we are binding our nodes to the same data that is passed to d3.forceSimulation(), as our simulation runs, we can simply rely on the next and final step to update our nodes with new positioning.\nStep four is to end by indicating how we should update our nodes at each step as the simulation applies forces. The simulation will be updating the underlying positional data array (nodes) that is already bound to our drawn elements so we just have specify moving each node to its new position."
+  },
+  {
+    "objectID": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---put-it-together",
+    "href": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---put-it-together",
+    "title": "edenian blog",
+    "section": "What you need to do - put it together",
+    "text": "What you need to do - put it together\nI went back and forth with chatGPT a lot, and I read a lot of documentation to make the visual. But it was worth it. I feel like I have a better understanding of D3.\n\nFor my beeswarm plot, I make a base plot that has minimal D3 forces applied to it, it looks like this:\n\n// Initialize simulation with the base forces\n    const sim = d3\n      .forceSimulation(node_data)\n      .force(\"x\", d3.forceX(d =&gt; xScale(new Date(d.create_date))))  // Position along the X-axis based on create_date\n      .force(\"collide\", d3.forceCollide().radius(d =&gt; radiusScale(d.commits) + 1).strength(0.5));  // Default collision force\n\nThen I used the scan variable I created above that is linked to closeread’s scroll trigger to dynamically add new D3 forces to the plot:\n\n// If `scan &gt; 1`, apply additional forces for language grouping\nif (scan &gt; 1) {\n  // Apply additional y-force to divide nodes by language\n  sim.force(\"y\", d3.forceY(d =&gt; yScale(d.language) + 70))  // Position nodes along y-axis based on language\n    .force(\"collide\", d3.forceCollide().radius(d =&gt; radiusScale(d.commits) + 1).strength(0.8));  // Adjust collision force\n\n  // Create x-axis for years\n  const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat(\"%Y\"));\n  const xAxisGroup = svg.append(\"g\")\n  .attr(\"transform\", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)\n  .call(xAxis);\n\n    // Style x-axis labels (make them bold and larger)\n    xAxisGroup.selectAll(\"text\")\n    .attr(\"font-size\", \"16px\")    // Set font size to 16px or any value you prefer\n    .attr(\"font-weight\", \"bold\"); // Make the labels bold\n\n    // Create y-axis for language groups\n    const yAxis = d3.axisLeft(yScale);\n    const yAxisGroup = svg.append(\"g\")\n    .attr(\"transform\", `translate(${chart_param.margin.left}, 0)`)\n    .call(yAxis);\n    \n    // Style y-axis labels (make them bold and larger)\n    yAxisGroup.selectAll(\"text\")\n    .attr(\"font-size\", \"15px\")    // Set font size to 16px or any value you prefer\n    .attr(\"font-weight\", \"bold\"); // Make the labels bold\n  \n} else {\n  // For `scan === 1`, apply the default force with no language division\n  sim.force(\"y\", d3.forceY(chart_param.height / 2))  // All nodes at the center of Y-axis\n    .force(\"collide\", d3.forceCollide().radius(d =&gt; radiusScale(d.commits) + 1).strength(0.5));  // Default collision force\n\n  // Create x-axis for years\n  const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat(\"%Y\"));\n  const xAxisGroup = svg.append(\"g\")\n  .attr(\"transform\", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)\n  .call(xAxis);\n\n// Style x-axis labels (make them bold and larger)\nxAxisGroup.selectAll(\"text\")\n  .attr(\"font-size\", \"16px\")    // Set font size to 16px or any value you prefer\n  .attr(\"font-weight\", \"bold\"); // Make the labels bold\n\n}\n\nYou can see a conditional statement: when scan &gt;1 then the plot will get split into a plot by the language variable, and a new y axis will be added to the plot. Else, when scan === 1 then the plot has a base force with the regular x axis only"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
     "objectID": "posts/2024-08-21-translate-md-files/index.html#md-parse",
     "href": "posts/2024-08-21-translate-md-files/index.html#md-parse",
     "title": "Translating Quarto (and other markdown files) into Any Language",
@@ -54,75 +124,5 @@
     "title": "Translating Quarto (and other markdown files) into Any Language",
     "section": "write to new qmd",
     "text": "write to new qmd\nclean up and write to new\n\n\nparsed_es_to_qmd &lt;- parsed_es |&gt;\n  dplyr::select(-text) |&gt;\n  dplyr::rename(text = text_es)\n\n# output to qmd\nlightparser::combine_tbl_to_file(\n  parsed_es_to_qmd,\n  \"_spanish.qmd\"\n)"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/2025-01-13-scrollyd3/index.html",
-    "href": "posts/2025-01-13-scrollyd3/index.html",
-    "title": "frank blog",
-    "section": "",
-    "text": "frank aragona\n\n\n\n\n\n\n\n\n\nHow to use closeread with Observable JS\nHow to make cool interactive plots when the user scrolls\nAn intro to D3.js"
-  },
-  {
-    "objectID": "posts/2025-01-13-scrollyd3/index.html#closeread-ojs-d3.js-interaction",
-    "href": "posts/2025-01-13-scrollyd3/index.html#closeread-ojs-d3.js-interaction",
-    "title": "frank blog",
-    "section": "",
-    "text": "frank aragona"
-  },
-  {
-    "objectID": "posts/2025-01-13-scrollyd3/index.html#overview",
-    "href": "posts/2025-01-13-scrollyd3/index.html#overview",
-    "title": "frank blog",
-    "section": "",
-    "text": "How to use closeread with Observable JS\nHow to make cool interactive plots when the user scrolls\nAn intro to D3.js"
-  },
-  {
-    "objectID": "posts/2025-01-13-scrollyd3/index.html#how-it-works",
-    "href": "posts/2025-01-13-scrollyd3/index.html#how-it-works",
-    "title": "frank blog",
-    "section": "How it works",
-    "text": "How it works\nThe closeread docs for ojs are great - I highly recommend reading through that document.\nThey use crProgressBlock as a variable to indicate how far along the page a user has scrolled.\nThey then take that variable and apply some basic math to it. For example, when the user starts scrolling at 0%, they set the variable angle1 to be -180. And angle1 will change as the user scrolls down until it gets to angle = 0. Like this:\nangleScale1 = d3.scaleLinear()\n  .domain([0, 1])\n  .range([-180, 0])\n  .clamp(true)\n    \nangle1 = angleScale1(crProgressBlock)"
-  },
-  {
-    "objectID": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---user-scroll-locations",
-    "href": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---user-scroll-locations",
-    "title": "frank blog",
-    "section": "What you need to do - user scroll locations",
-    "text": "What you need to do - user scroll locations\n\nput this chunk in your quarto document and run quarto preview. Note that the last variable is a variable you can derive\n\n:::{.counter style=\"position: fixed; top: 10px; right: 10px; background-color: skyblue; border-radius: 5px; padding: 18px 18px 0 18px; line-height: .8em;\"}\n```{ojs}\nmd`Active sticky: ${crActiveSticky}`\nmd`Active trigger: ${crTriggerIndex}`\nmd`Trigger progress: ${(crTriggerProgress * 100).toFixed(1)}%`\nmd`Scroll direction: ${crDirection}`\nmd`Progress Block progress: ${(crProgressBlock * 100).toFixed(1)}%`\nmd`-----`\nmd`(derived) derived var1: ${bf1.toFixed(1)}°`\n```\n:::\n\nscroll on the script and the blue tab on the upper right will tell you what those variables equal when the user scrolls through the site\nnow you can see how variables change\nassign that variable to something in ojs, such as scan = crTriggerIndex"
-  },
-  {
-    "objectID": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---learn-some-d3",
-    "href": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---learn-some-d3",
-    "title": "frank blog",
-    "section": "What you need to do - learn some D3",
-    "text": "What you need to do - learn some D3\nNow you have scan = crTriggerIndex, a variable in ojs that gets updated when a user scrolls. We can use this variable in our plot.\n\nI used D3.js to make the beeswarm plot\nuse Observable to design the plot (and chatGPT to guide you with the code)\nfor a D3.js introduction, you NEED to read this document\n\nespecially this part: it shows how D3 visuals are broken down into parts\n\n\n\nStructure of d3-force simulations Before we dive into the specific forces that we’ll use, let’s briefly discuss the general structure used to create a force-directed graph.\n\n\n// 1. create a copy of the node data nodes = node_data.map(d =\\&gt; Object.create(d))\n// 2. create new force simulation specifying the forces to use // and, in our case, how many “ticks” or frames we’ll want to simulate\n\nsim = d3.forceSimulation(nodes) .force(\"force_name\", ...) // ... chain together as many forces as we want .stop() .tick(n_frames_to_simulate)\n\n// 3. bind data and draw nodes node = svg.selectAll(\".node\") .data(nodes).enter() // ... specify node position, radius, etc. as we normally would\n// 4. indicate how we should update the graph for each tick\n\n\nsim.on(\"tick\", () =\\&gt; { // ... specify how we should move nodes/edges given new positional data })\n\n\nStep one is to create a copy of our initial node data (position, radius, etc.) so that we can pass this copy rather than our original data to d3.forceSimulation(). This is because as we simulate forces, the d3.forceSimulation() function will update whatever array of data we pass it to reflect how forces are influencing our nodes so if we have any intention of re-using our initial node data after we start simulating, we’ll want to copy it first. However, if you are only doing one simulation and do not need preserve the initial data, you don’t necessarily need to worry about copying your data.\nStep two is to actually make our simulation by first passing our (copied) array of data to d3.forceSimulation(). We can then add/chain whatever forces we would like to use with force(...) (more on this below). In our case, once we have defined the behavior of the simulation, we will then explictly stop the simulation before it has a chance to start so that we can specify how many frames or ticks we would like to run of our simulation. We do this below so that we can control where we are in the simulation with scrubbers, but without doing this, the simulation will simply start and continue to run on it’s own.\nStep three is to simply bind our data and draw our nodes as we would for any static graph. Because we are binding our nodes to the same data that is passed to d3.forceSimulation(), as our simulation runs, we can simply rely on the next and final step to update our nodes with new positioning.\nStep four is to end by indicating how we should update our nodes at each step as the simulation applies forces. The simulation will be updating the underlying positional data array (nodes) that is already bound to our drawn elements so we just have specify moving each node to its new position."
-  },
-  {
-    "objectID": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---put-it-together",
-    "href": "posts/2025-01-13-scrollyd3/index.html#what-you-need-to-do---put-it-together",
-    "title": "frank blog",
-    "section": "What you need to do - put it together",
-    "text": "What you need to do - put it together\nI went back and forth with chatGPT a lot, and I read a lot of documentation to make the visual. But it was worth it. I feel like I have a better understanding of D3.\n\nFor my beeswarm plot, I make a base plot that has minimal D3 forces applied to it, it looks like this:\n\n// Initialize simulation with the base forces\n    const sim = d3\n      .forceSimulation(node_data)\n      .force(\"x\", d3.forceX(d =&gt; xScale(new Date(d.create_date))))  // Position along the X-axis based on create_date\n      .force(\"collide\", d3.forceCollide().radius(d =&gt; radiusScale(d.commits) + 1).strength(0.5));  // Default collision force\n\nThen I used the scan variable I created above that is linked to closeread’s scroll trigger to dynamically add new D3 forces to the plot:\n\n// If `scan &gt; 1`, apply additional forces for language grouping\nif (scan &gt; 1) {\n  // Apply additional y-force to divide nodes by language\n  sim.force(\"y\", d3.forceY(d =&gt; yScale(d.language) + 70))  // Position nodes along y-axis based on language\n    .force(\"collide\", d3.forceCollide().radius(d =&gt; radiusScale(d.commits) + 1).strength(0.8));  // Adjust collision force\n\n  // Create x-axis for years\n  const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat(\"%Y\"));\n  const xAxisGroup = svg.append(\"g\")\n  .attr(\"transform\", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)\n  .call(xAxis);\n\n    // Style x-axis labels (make them bold and larger)\n    xAxisGroup.selectAll(\"text\")\n    .attr(\"font-size\", \"16px\")    // Set font size to 16px or any value you prefer\n    .attr(\"font-weight\", \"bold\"); // Make the labels bold\n\n    // Create y-axis for language groups\n    const yAxis = d3.axisLeft(yScale);\n    const yAxisGroup = svg.append(\"g\")\n    .attr(\"transform\", `translate(${chart_param.margin.left}, 0)`)\n    .call(yAxis);\n    \n    // Style y-axis labels (make them bold and larger)\n    yAxisGroup.selectAll(\"text\")\n    .attr(\"font-size\", \"15px\")    // Set font size to 16px or any value you prefer\n    .attr(\"font-weight\", \"bold\"); // Make the labels bold\n  \n} else {\n  // For `scan === 1`, apply the default force with no language division\n  sim.force(\"y\", d3.forceY(chart_param.height / 2))  // All nodes at the center of Y-axis\n    .force(\"collide\", d3.forceCollide().radius(d =&gt; radiusScale(d.commits) + 1).strength(0.5));  // Default collision force\n\n  // Create x-axis for years\n  const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat(\"%Y\"));\n  const xAxisGroup = svg.append(\"g\")\n  .attr(\"transform\", `translate(0, ${chart_param.height - chart_param.margin.bottom})`)\n  .call(xAxis);\n\n// Style x-axis labels (make them bold and larger)\nxAxisGroup.selectAll(\"text\")\n  .attr(\"font-size\", \"16px\")    // Set font size to 16px or any value you prefer\n  .attr(\"font-weight\", \"bold\"); // Make the labels bold\n\n}\n\nYou can see a conditional statement: when scan &gt;1 then the plot will get split into a plot by the language variable, and a new y axis will be added to the plot. Else, when scan === 1 then the plot has a base force with the regular x axis only"
   }
 ]
