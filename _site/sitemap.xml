@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/edenian-prince/blog/about.html</loc>
-    <lastmod>2025-10-20T21:43:07.759Z</lastmod>
+    <lastmod>2025-10-20T22:23:11.169Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/edenian-prince/blog/posts/2025-01-07-typst-colors/index.html</loc>
-    <lastmod>2025-10-20T21:43:07.763Z</lastmod>
+    <lastmod>2025-10-20T22:23:11.173Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/edenian-prince/blog/posts/post-with-code/index.html</loc>
-    <lastmod>2025-10-20T21:43:07.847Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/edenian-prince/blog/index.html</loc>
-    <lastmod>2025-10-20T21:43:07.759Z</lastmod>
+    <lastmod>2025-10-20T22:23:11.278Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/index.html</loc>
-    <lastmod>2025-10-20T21:43:07.846Z</lastmod>
+    <lastmod>2025-10-20T22:23:11.271Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/edenian-prince/blog/index.html</loc>
+    <lastmod>2025-10-20T22:23:11.169Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/edenian-prince/blog/posts/2025-10-20-28-years-later/index.html</loc>
+    <lastmod>2025-10-20T22:23:11.278Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/edenian-prince/blog/posts/welcome/index.html</loc>
-    <lastmod>2025-10-20T21:43:07.847Z</lastmod>
+    <lastmod>2025-10-20T22:23:11.278Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/edenian-prince/blog/posts/2024-08-21-translate-md-files/index.html</loc>
-    <lastmod>2025-10-20T21:43:07.760Z</lastmod>
+    <lastmod>2025-10-20T22:23:11.170Z</lastmod>
   </url>
 </urlset>
