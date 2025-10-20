@@ -12,6 +12,7 @@ format:
                   narrative-text-color-sidebar: "#fdfdfd"
                   # narrative-overlay-max-width: 
 knitr: true
+image: "images/jspic.png"
 ---
 
 :::::: cr-section
