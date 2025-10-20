@@ -25,7 +25,7 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: '1.5.22'
+          version: '1.7.32'
         
       - name: Prep CURL install
         run: sudo apt-get update
@@ -37,7 +37,7 @@ jobs:
       #   uses: r-lib/actions/setup-renv@v2
   
       - name: Cache packages
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ${{ env.RENV_PATHS_ROOT }}
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}

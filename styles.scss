@@ -1,427 +1,50 @@
 /*-- scss:defaults --*/
-$white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #fdfdfd;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black: #000;
-$purple: #1d044f;
-$navbar-bg: $gray-200;
 
-// $primary: #440154ff;
-$primary: #fdfdfd;
-$link-color: $gray-900;
+@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
 
-// fonts
-$font-family-sans-serif: 'JetBrains Mono', sans-serif;
-// $presentation-heading-font: 'IBM Plex Serif', serif;
+$font-family: "Atkinson Hyperlegible", sans-serif;
+$font-family-serif: "Atkinson Hyperlegible", sans-serif;
 
-// fonts
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+$primary: #440154ff;
+// $primary: #fdfdfd;
+$primary-back: #fdfdfd;
+$secondary: #20A486ff;
+$secondaryalt: #155D64;
+$secondaryalt2: #efe8f1;
+$secondaryalt3: #c3e0fa;
+$tertiary: #75D054ff;
 
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url('https://rsms.me/inter/inter.css');
-
+$theme-white: #F7F8F9;
+$theme-yellow: #E8D4AD;
+$theme-darksand: #D0927D;
+$theme-night: #060708;
+$theme-ground: #416270;
+$theme-blue: #170b33;
+// navbar text
+$navbar-fg: $primary-back;
+//$navbar-fg: $theme-night;
+$light-bg: #f8f5f9;
+$link-color: $theme-blue; 
 
 /*-- scss:rules --*/
 
-.navbar {
-  position: relative;
-  height: 70px; /* Adjust height as needed */
-  background-color: $gray-200; /* Navbar background color */
-  font-family: 'JetBrains Mono';
+.navbar-brand {
+	font-family: "Hanken Grotesk";
+	font-weight: 900;
+	font-size: 30px;
+	color: #c3deea;
 }
 
-.splash-page {
-    // padding: 50px 0;
-    width: 90%;
-    // background-color: $gray-300;
-    translate: 10px;
-    background-color: $gray-400;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-  }
+// navbar
 
-
-// Cloud
-
-.cloud {
-  position: absolute; /* Change to relative for navbar context */
-  width: 40px; /* Smaller width */
-  height: 15px; /* Smaller height */
-  background-color: #800080; /* Purple cloud */
-  border-radius: 50px; /* Rounded edges */
-  box-shadow: 0 0 10px rgba(128, 0, 128, 0.5); /* Soft shadow */
+.navbar-container {
+  width: 90%;
+  height: 120px;
+  font-size: large;
 }
 
-.cloud::before, .cloud::after {
-  content: '';
-  position: absolute;
-  background-color: #800080; /* Same purple color */
-  border-radius: 50%; /* Make it round */
-}
-
-.cloud::before {
-  width: 35px; /* Smaller fluff */
-  height: 20px; /* Smaller fluff */
-  top: -7.7px; /* Adjust position */
-  left: 3px; /* Center it */
-}
-
-.cloud::after {
-  width: 25px; /* Smaller fluff */
-  height: 15px; /* Smaller fluff */
-  top: -8px; /* Adjust position */
-  left: 15px; /* Adjust position */
-}
-
-/* Add raindrops */
-.rain {
-  position: absolute;
-  top: 40px; /* Position below the cloud */
-  left: 35px; /* Adjust as needed */
-}
-
-.rain::before, .rain::after, .rain .drop3 {
-  content: '';
-  position: absolute;
-  width: 3px; /* Width of raindrop */
-  height: 10px; /* Height of raindrop */
-  background-color: rgba(128, 0, 128, 0.5); /* Semi-transparent purple */
-  border-radius: 50%; /* Round raindrop */
-  animation: fall 1s infinite; /* Animation */
-}
-
-.rain::before {
-  left: 5px; /* Position for first raindrop */
-  animation: fall 1s infinite; /* Animation */
-}
-
-.rain::after {
-  left: 15px; /* Position for second raindrop */
-  animation: fall 1s infinite 0.5s; /* Staggered animation */
-}
-
-.rain .drop3 {
-  left: 25px; /* Position for the third raindrop */
-  animation: fall 1s infinite 1s; /* Staggered animation */
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(15px); /* Shorter drop distance */
-  }
-}
-
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
-
-// :root {
-//     --primary_color: #FFC066;
-//     --secondary_color: #374f1f;
-//     --card-color: #f2e3cd;
-//     --bg_color: #2331a0;
-//     --third: #6ca9c1;
-//     --white: #eee;
-//     --dark-grey: #555;
-//     --black: #333;
-// }
-
-.brazil {
-    --primary_color: #FFC066;
-    --secondary_color: #6c772e;
-    --third_color: #2a4368;
-}
-
-.urss {
-    --secondary_color: #ff4f4f;
-    --primary_color: #FFC066;
-    --third_color: #333;
-}
-
-.argentina {
-    --primary_color: #eee;
-    --secondary_color: #7cc1f9;
-    --third_color: #333;
-}
-
-.france {
-    --primary_color: #ff4f4f;
-    --secondary_color: #2a4368;
-    --third_color: #eee;
-}
-
-.italy {
-    --primary_color: #ff4f4f;
-    --secondary_color: #6c772e;
-    --third_color: #eee;
-}
-
-.spain {
-    --primary_color: #ff4f4f;
-    --secondary_color: #FFC066;
-    --third_color: #eee;
-}
-
-.england {
-    --primary_color: #eee;
-    --secondary_color: #ff4f4f;
-    --third_color: #333;
-}
-
-.germany {
-    --primary_color: #ff4f4f;
-    --secondary_color: #FFC066;
-    --third_color: #eee;
-}
-
-// body {
-//     font-size: 62.5%;
-//     font-family: roboto;
-//     width: 100vw;
-//     background-color: var(--primary_color);
-//     text-transform: uppercase;
-//     padding: 90px;
-//     padding-top: 30px;
-//     display: flex;
-//     justify-content: center;
-// }
-
-.names {
-    background-color: var(--card-color);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    margin: 20px 15px;
-    border-radius: 10px;
-    border: 4px solid var(--black);
-    box-shadow: 14px 14px 0px 0px var(--black);
-    width: 900px;
-    padding-top: 80px;
-}
-
-.name_container {
-    display: block;
-    height: 20em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 59em;
-    position: relative;
-    width: 100%;
-}
-
-.name_container_name {
-    font-size: 9.2em;
-    font-weight: 900;
-    color: var(--secondary_color);
-}
-
-.name_container._1 .name_container_name {
-    color: var(--primary_color);
-    filter: drop-shadow(6px 6px 0px var(--secondary_color)) drop-shadow(6px 6px 0px var(--third_color));
-}
-
-.name_container._1 .name_container_name span {
-    -webkit-text-stroke: 4px var(--black);
-}
-
-.name_container._2 .name_container_name {
-    filter: drop-shadow(8px 8px 0px var(--black));
-}
-
-.name_container._2 .name_container_name span {
-    -webkit-text-stroke: 4px var(--black);
-    background: linear-gradient(180deg, var(--primary_color) 60%, var(--secondary_color) 40%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.name_container._3 .name_container_name {
-    filter: drop-shadow(1px 1px 0px var(--black))
-            drop-shadow(1px 0px 0px var(--black))
-            drop-shadow(1px -1px 0px var(--black))
-            drop-shadow(-1px 1px 0px var(--black))
-            drop-shadow(-1px 0px 0px var(--black))
-            drop-shadow(-1px -1px 0px var(--black))
-            drop-shadow(6px 6px 0px var(--black));
-    color: var(--primary_color);
-}
-
-.name_container._3 .name_container_name span {
-    -webkit-text-stroke: 5px var(--secondary_color);
-}
-
-.name_container._4 .name_container_name {
-    color: var(--white);
-    filter: drop-shadow(6px 6px 0px var(--secondary_color)) drop-shadow(-6px -6px 0px var(--primary_color));
-}
-
-.name_container._4 .name_container_name span {
-    -webkit-text-stroke: 4px var(--black);
-}
-
-.name_container._5 .name_container_name {
-    position: relative;
-    color: red !important;
-}
-
-.name_container._5 .name_container_name::after {
-    content: "";
-    display: block;
-    min-height: 44%;
-    min-width: 110%;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, var(--primary_color) 50%, var(--secondary_color) 50%);
-    outline: 2px solid var(--black);
-}
-
-.name_container._5 .name_container_name span {
-    color: var(--white);
-    -webkit-text-stroke: 3px var(--black);
-    filter: drop-shadow(3px 3px 0px var(--black));
-    z-index: 999;
-    display: block;
-    position: relative;
-}
-
-.name_container._6 .name_container_name {
-    color: var(--primary_color);
-    filter: drop-shadow(0px 8px 0px var(--secondary_color));
-}
-
-.name_container._6 .name_container_name span {
-    -webkit-text-stroke: 2px var(--black);
-}
-
-.name_container._7 .name_container_name {
-    position: relative;
-}
-
-.name_container._7 .name_container_name::after {
-    content: "===============";
-    position: absolute;
-    display: block;
-    height: 40%;
-    width: 120%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--primary_color);
-    overflow: hidden;
-    white-space: nowrap;
-    letter-spacing: -20px;
-    display: flex;
-    justify-content: center;
-    border-radius: 30px;
-    background: linear-gradient(180deg, var(--primary_color) 50%, var(--secondary_color) 50%);
-    outline: 1px solid var(--black);
-}
-
-.name_container._7 .name_container_name span {
-    color: var(--white);
-    -webkit-text-stroke: 2px var(--black);
-    z-index: 999;
-    display: block;
-    position: relative;
-    filter: drop-shadow(4px 4px 0px var(--black));
-}
-
-.name_container._8 .name_container_name {
-    position: relative;
-}
-
-.name_container._8 .name_container_name::before {
-    content: "";
-    position: absolute;
-    display: block;
-    height: 40%;
-    width: 0.5em;
-    top: 50%;
-    left: 0px;
-    transform: translate(-146%, -50%);
-    background-color: var(--primary_color);
-    border-radius: 30px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background: linear-gradient(180deg, var(--primary_color) 50%, var(--secondary_color) 50%);
-    outline: 3px solid var(--black);
-    filter: drop-shadow(4px 4px 0px var(--black));
-}
-
-.name_container._8 .name_container_name::after {
-    content: "";
-    position: absolute;
-    display: block;
-    height: 40%;
-    width: 0.5em;
-    top: 50%;
-    right: 0px;
-    transform: translate(147%, -50%);
-    background-color: var(--primary_color);
-    border-radius: 30px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background: linear-gradient(180deg, var(--primary_color) 50%, var(--secondary_color) 50%);
-    outline: 3px solid var(--black);
-    filter: drop-shadow(4px 4px 0px var(--black));
-}
-
-.name_container._8 .name_container_name span {
-    color: var(--primary_color);
-    -webkit-text-stroke: 3px var(--black);
-    z-index: 999;
-    display: block;
-    position: relative;
-    filter: drop-shadow(3px 3px 0px var(--black));
-}
-
-.name_container._9 .name_container_name {
-    position: relative;
-    --name: attr(data-name);
-}
-.name_container._9 .name_container_name::after {
-  content: var(--name);
-  color: transparent;
-  position: absolute;
-  display: block;
-  height: 100%;
-  width: 120%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-48%, -45%);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  -webkit-text-stroke: 2px var(--black);
-}
-
-.name_container._9 .name_container_name span {
-  color: var(--primary_color);
-  -webkit-text-stroke: 2px var(--black);
-  z-index: 999;
-  display: block;
-  position: relative;
+.navbar-logo {
+  max-height: 60px;
+  width: auto;
+  padding-right: 4px;
 }

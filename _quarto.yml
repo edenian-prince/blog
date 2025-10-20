@@ -1,24 +1,51 @@
 project:
   type: website
+  # resources:
+  #   - "images/twitter-card.png"
 
 website:
-  title: "frank blog"
+  favicon: images/profile.png
+  title: "edenian blog"
+  site-url: https://github.com/edenian-prince/blog
+  description: 'thoughts, programming, movies, books'
+
+  repo-url: https://github.com/edenian-prince/blog
+  repo-actions: [edit, issue]
+
+  open-graph: true
+  twitter-card:
+    creator: "@quarto_pub"
+    image: "/images/twitter-card.png"
+
   navbar:
-    title: "frank blog<span class='name_container._8'></span>"
     right:
-      - about.qmd
+      - text: About
+        href: about.qmd
       - icon: github
         href: https://github.com/edenian-prince/blog
-format:
-  nwpage-html:
-    theme: [styles.scss ]
-    # page-layout: article
-    # grid:
-    #   sidebar-width: 1px
-    #   body-width: 500px
-    #   gutter-width: 1px
-    toc: true
+        aria-label: GitHub repo
+      - icon: cloud-fill
+        href: https://bsky.app/profile/quarto.org
+        aria-label: Quarto Bluesky
 
+  page-footer:
+    right: "This blog is built with ❤️ and [Quarto](https://quarto.org/)."
+
+format:
+  html:
+    theme:
+      light: [litera, styles.scss]
+      dark: [darkly, styles-dark.scss]
+    highlight-style: a11y-dark
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+    include-in-header:
+      - text: '<script src="https://d3js.org/d3.v7.min.js"></script>'
+    include-before-body:
+      - assets/navbar.html
+
+editor: visual
 
 
 
