@@ -10,7 +10,78 @@
 <atom:link href="https://github.com/edenian-prince/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>thoughts, programming, movies, books</description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Mon, 20 Oct 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 22 Nov 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Prevent Credential Leaks w/ Git Hooks</title>
+  <link>https://github.com/edenian-prince/blog/posts/2025-11-22-git-find/</link>
+  <description><![CDATA[ 
+
+<script src="../../assets/navbar_cells.js"></script>
+
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>I made a cli tool in rust that sets up pre-commit hooks and prevents credentials from being leaked in a repo. There are many tools like it, but I haven’t found any that can set up automated credential updates as easily. If there are tools out there that have that capability, please let me know! I think my tool is useful if you need to set up pre-commit hooks for beginner git users, but am open to learning about other tools.</p>
+<p><a href="https://github.com/edenian-prince/rust-secrets">https://github.com/edenian-prince/rust-secrets</a></p>
+</section>
+<section id="comparison-to-aws-git-secrets" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-to-aws-git-secrets">Comparison to AWS Git Secrets</h2>
+<section id="git-secrets-doesnt-work-like-i-expect-out-of-the-box" class="level3">
+<h3 class="anchored" data-anchor-id="git-secrets-doesnt-work-like-i-expect-out-of-the-box">git-secrets doesn’t work like I expect out of the box</h3>
+<p>After installing git-secrets and git-find, we can see that out of the box git-secrets doesn’t apply git hooks globally to <em>existing</em> repos. I have to manually adjust that on my own. That could be a good thing for experienced users that want local hooks first, but when we’re setting up hooks for new git users where the main concern is security leaks, we just want to apply the hooks to ALL of their repositories and not worry about them needing to potentially adjust their git settings.</p>
+<p>and to note, with git-secrets I added the provider like this:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> secrets <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--add-provider</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--global</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--</span> cat ./secrets_key</span></code></pre></div>
+<p>with git-find it’s just</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">git-find</span> add-provider <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--path</span> /path/to/secrets.txt</span></code></pre></div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/commit.mp4"></video></div>
+<p><br></p>
+</section>
+<section id="git-find-can-auto-update-the-secret-provider" class="level3">
+<h3 class="anchored" data-anchor-id="git-find-can-auto-update-the-secret-provider">git-find can auto update the secret provider</h3>
+<p>With git-secrets I had to remind my teammates to manually update their regex provider files every time there was a new addition. For example, our team would add a new server to our workflow and we would need to add a regex to the provider list in order to prevent that server name from being accidentally hardcoded into the git repo.</p>
+<p>This is a huge pain and a security risk to rely on asking git newbies to update their hook files. git-find does all of this automatically under the hood, and it lets you store your secrets file in a centralized location to ensure all of the team has access to the exact same hooks and recieve updates automatically.</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/auto2.mp4"></video></div>
+<p>Under the hood, when you add a provider:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">git-find</span> add-provider <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--path</span> /path/to/secrets.txt</span></code></pre></div>
+<p>It will prompt the user to set up auto updates if the provider is in a local git repo. If the user inputs Yes, it will run <code>git pull /secrets/repo/</code> to pull the latest updates whenever the user runs <code>git commit</code>, ensuring that they have the latest security updates</p>
+</section>
+<section id="history-scanning" class="level3">
+<h3 class="anchored" data-anchor-id="history-scanning">history scanning</h3>
+<p>This is still a work in progress. Eventually I want to make a script that puts the secret scan results in a dataframe where the user can easily parse for any security leaks in a repo.</p>
+<p>In the past I had some issues with git-secrets scanning tools. Not sure why, but it would take forever to scan big repos I think git-find has it sorted out, but it obviously doesn’t look faster here. I will continue to test and update this.</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/scan.mp4"></video></div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>git</category>
+  <category>rust</category>
+  <category>cli tools</category>
+  <guid>https://github.com/edenian-prince/blog/posts/2025-11-22-git-find/</guid>
+  <pubDate>Sat, 22 Nov 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://github.com/edenian-prince/blog/posts/2025-11-22-git-find/images/harrypotter-chamberofsecrets.gif" medium="image" type="image/gif"/>
+</item>
 <item>
   <title>28 Years Later: movie review</title>
   <dc:creator>Frank Aragona</dc:creator>
@@ -1062,8 +1133,8 @@ font-style: inherit;">"_spanish.qmd"</span></span>
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-section-background-color: #f6f9fc;
---cr-narrative-text-color-sidebar: #fdfdfd;
+          --cr-narrative-text-color-sidebar: #fdfdfd;
+--cr-section-background-color: #f6f9fc;
 --cr-narrative-background-color-sidebar: #021525;
         }
       </style>
@@ -4762,7 +4833,7 @@ font-style: inherit;">`translate(0, ${chart_param.height - chart_param.margin.bo
 
  ]]></description>
   <guid>https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/</guid>
-  <pubDate>Mon, 20 Oct 2025 22:27:44 GMT</pubDate>
+  <pubDate>Sat, 22 Nov 2025 20:42:21 GMT</pubDate>
   <media:content url="https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/images/jspic.png" medium="image" type="image/png" height="43" width="144"/>
 </item>
 </channel>
