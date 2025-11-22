@@ -19,7 +19,7 @@ image: "images/jspic.png"
 ::: {focus-on="cr-title"}
 ## Closeread OJS D3.js Interaction ![](images/water-wave.png){style="position: relative; top: -2.5px;" width="40"}
 
-frank aragona
+edenp
 :::
 
 :::: {#cr-title}
