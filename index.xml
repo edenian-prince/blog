@@ -1134,8 +1134,8 @@ font-style: inherit;">"_spanish.qmd"</span></span>
       <style>
         :root {
           --cr-narrative-text-color-sidebar: #fdfdfd;
---cr-section-background-color: #f6f9fc;
 --cr-narrative-background-color-sidebar: #021525;
+--cr-section-background-color: #f6f9fc;
         }
       </style>
     
@@ -4833,7 +4833,7 @@ font-style: inherit;">`translate(0, ${chart_param.height - chart_param.margin.bo
 
  ]]></description>
   <guid>https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/</guid>
-  <pubDate>Sat, 22 Nov 2025 20:42:21 GMT</pubDate>
+  <pubDate>Sat, 22 Nov 2025 20:46:14 GMT</pubDate>
   <media:content url="https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/images/jspic.png" medium="image" type="image/png" height="43" width="144"/>
 </item>
 </channel>
