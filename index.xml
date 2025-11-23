@@ -1133,8 +1133,8 @@ font-style: inherit;">"_spanish.qmd"</span></span>
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-narrative-text-color-sidebar: #fdfdfd;
---cr-narrative-background-color-sidebar: #021525;
+          --cr-narrative-background-color-sidebar: #021525;
+--cr-narrative-text-color-sidebar: #fdfdfd;
 --cr-section-background-color: #f6f9fc;
         }
       </style>
@@ -4833,7 +4833,7 @@ font-style: inherit;">`translate(0, ${chart_param.height - chart_param.margin.bo
 
  ]]></description>
   <guid>https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/</guid>
-  <pubDate>Sat, 22 Nov 2025 20:46:14 GMT</pubDate>
+  <pubDate>Sun, 23 Nov 2025 00:26:20 GMT</pubDate>
   <media:content url="https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/images/jspic.png" medium="image" type="image/png" height="43" width="144"/>
 </item>
 </channel>
