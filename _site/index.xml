@@ -45,7 +45,8 @@
 <section id="dr.-kelson-jimmy-love-art-and-religion" class="level2">
 <h2 class="anchored" data-anchor-id="dr.-kelson-jimmy-love-art-and-religion">Dr.&nbsp;Kelson, Jimmy, love, art, and religion</h2>
 <p>We contrast Samson’s Adam and Eve moment with Kelson saying he’s atheist and Jimmy losing touch with reality by trying to cling to religion, either by god in his childhood or by the devil after he felt that god betrayed him. He’a trying to cling to a higher power to find truth amongst the chaos and unexplained. Kelson found that, religion aside, it’s love and patience and constant effort/experimenting with how to show that love that can cure someone of hate. Yes, science cured Samson, but I believe it had to be mixed with Kelson’s constant love and patience. It could not have happened in a cold laboratory. And I’m not sure if this is a flat out denouncement of religion, but gives us hope that we don’t have to cling to a higher power (whether satan or god) to heal ourselves. We can solve this with love and patience, and a little science.</p>
-<p>I feel bad for Jimmy. He was just as affected by the virus as the actual infected. He needed a role model like Kelson so badly, <strong>just like men now need better role models</strong></p>
+<p>I feel bad for Jimmy. He was just as affected by the virus as the actual infected. There’s a moment when he opens up and tells Kelson he feels heard, that nobody has really listened to him like Kelson. If Kelson had more time with Jimmy, I believe he would have cured him like he cured Samson.</p>
+<p>He needed a role model like Kelson so badly, <strong>just like men right now that need better role models</strong>.</p>
 </section>
 <section id="jim" class="level2">
 <h2 class="anchored" data-anchor-id="jim">Jim</h2>
@@ -1191,9 +1192,9 @@ font-style: inherit;">"_spanish.qmd"</span></span>
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-narrative-text-color-sidebar: #fdfdfd;
+          --cr-section-background-color: #f6f9fc;
 --cr-narrative-background-color-sidebar: #021525;
---cr-section-background-color: #f6f9fc;
+--cr-narrative-text-color-sidebar: #fdfdfd;
         }
       </style>
     
@@ -4891,7 +4892,7 @@ font-style: inherit;">`translate(0, ${chart_param.height - chart_param.margin.bo
 
  ]]></description>
   <guid>https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/</guid>
-  <pubDate>Sun, 18 Jan 2026 19:14:02 GMT</pubDate>
+  <pubDate>Sun, 18 Jan 2026 19:30:32 GMT</pubDate>
   <media:content url="https://github.com/edenian-prince/blog/posts/2025-01-13-scrollyd3/images/jspic.png" medium="image" type="image/png" height="43" width="144"/>
 </item>
 </channel>
