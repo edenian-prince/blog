@@ -12,6 +12,9 @@ image: "images/samson.jpg"
 
 ![](images/samson.jpg)
 
+
+**[Part 1 review here](../2025-10-20-28-years-later/index.qmd)** 
+
 :::{.box}
 
 **"Those who forget history are doomed to repeat it"**
